@@ -1,0 +1,32 @@
+[package]
+name = "chaquant-core"
+version = "0.1.0"
+edition = "2021"
+description = "Core Post-Quantum Cryptographic and Transport Engine for Chaquant Protocol"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/lcifuentes/chaquant"
+readme = "../README.md"
+
+[lib]
+name = "chaquant_core"
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+x25519-dalek = { version = "2.0", features = ["static_secrets"] }
+aes-gcm = "0.10"
+sha3 = "0.10"
+sha2 = "0.10"
+hkdf = "0.12"
+rand = "0.8"
+reed-solomon-erasure = "6.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+hex = "0.4"
+thiserror = "1.0"
+fips203 = "0.4.3"
+fips204 = "0.4.6"
+zeroize = { version = "1.8", features = ["derive"] }
+
+[features]
+default = []
+uniffi-bindings = []

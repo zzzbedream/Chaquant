@@ -1,0 +1,12 @@
+platform :ios, '16.0'
+
+target 'Chaquant' do
+  use_frameworks!
+
+  # In-memory & local zero-knowledge storage
+  pod 'SQLCipher', '~> 4.5.5'
+
+  target 'ChaquantTests' do
+    inherit! :search_paths
+  end
+end

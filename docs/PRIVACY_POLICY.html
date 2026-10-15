@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy • Chaquant Protocol</title>
+  <style>
+    :root {
+      --bg-primary: #F8F9FA;
+      --bg-card: #FFFFFF;
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --border-color: #E2E8F0;
+      --accent-navy: #0F2042;
+      --accent-seal: #9A3412;
+      --accent-emerald: #059669;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      margin: 0;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 48px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+    .header {
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background-color: #ECFDF5;
+      color: var(--accent-emerald);
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #A7F3D0;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      color: var(--accent-navy);
+      margin: 0 0 8px 0;
+      font-weight: 800;
+    }
+    .effective-date {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+    h2 {
+      font-size: 18px;
+      color: var(--accent-navy);
+      margin-top: 32px;
+      margin-bottom: 12px;
+      font-weight: 700;
+      border-left: 3px solid var(--accent-seal);
+      padding-left: 10px;
+    }
+    p, li {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+    ul {
+      padding-left: 20px;
+    }
+    .highlight-card {
+      background-color: #F1F5F9;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .highlight-card strong {
+      color: var(--accent-navy);
+    }
+    .footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+      font-size: 12px;
+      color: var(--text-secondary);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <span class="badge">Zero-Knowledge Certified</span>
+      <h1>Privacy Policy</h1>
+      <div class="effective-date">Application: <strong>Chaquant Protocol</strong> (Package: <code>tech.chaquant.protocol</code>) • Effective Date: October 2026</div>
+    </div>
+
+    <div class="highlight-card">
+      <strong>Core Commitment:</strong> Chaquant Protocol operates under a strict <strong>Zero-Data Collection Architecture</strong>. We do not require accounts, phone numbers, email addresses, contact access, or advertising identifiers. All cryptographic operations occur exclusively in-memory on your physical device.
+    </div>
+
+    <h2>1. Data We Do NOT Collect</h2>
+    <p>By design, our protocol eliminates metadata leakage and central surveillance. Chaquant does <strong>NOT</strong> collect, store, transmit, or share:</p>
+    <ul>
+      <li><strong>No Personal Identifiers:</strong> No names, email addresses, phone numbers, or account usernames.</li>
+      <li><strong>No Contact Information:</strong> We never request access to your device address book or contact lists.</li>
+      <li><strong>No Location Data:</strong> No GPS, Wi-Fi, or cellular network location tracking.</li>
+      <li><strong>No Advertising Identifiers:</strong> We explicitly opt-out of Google Advertising ID (<code>AD_ID</code>) and Apple IDFA.</li>
+      <li><strong>No Usage Analytics or Crash Trackers:</strong> No third-party SDKs (Google Firebase, Facebook SDK, Mixpanel, etc.).</li>
+    </ul>
+
+    <h2>2. Local On-Device Cryptographic Vault</h2>
+    <p>All transient messages, cryptographic keys, and document representations are stored exclusively on your device using hardware-backed encryption:</p>
+    <ul>
+      <li><strong>SQLCipher (256-bit AES-GCM):</strong> Local database encrypted with high-entropy keys derived on-device.</li>
+      <li><strong>Hardware Security Module:</strong> Key material is rooted in Android Keystore / Apple Secure Enclave.</li>
+      <li><strong>Zero Cloud Backups:</strong> System backups (Google Drive / iCloud Keychain) are explicitly disabled (<code>allowBackup="false"</code>) to prevent unauthorized extraction.</li>
+    </ul>
+
+    <h2>3. Post-Quantum Encryption &amp; Transport Obfuscation</h2>
+    <p>Communications between channel participants leverage state-of-the-art cryptographic standards:</p>
+    <ul>
+      <li><strong>NIST Level-5 Post-Quantum Cryptography:</strong> FIPS 203 (ML-KEM-1024) for quantum-resistant key exchange and FIPS 204 (ML-DSA-87) for digital signatures.</li>
+      <li><strong>Uniform Sphinx Framing:</strong> Packets are padded to uniform 1024-byte frames to prevent traffic analysis.</li>
+      <li><strong>Blind Silent Push:</strong> Background wakeups contain zero plaintext and zero metadata payload (<code>content-available: 1</code>).</li>
+    </ul>
+
+    <h2>4. Irreversible Data Destruction (GDPR Article 17 Compliance)</h2>
+    <p>Chaquant solves the regulatory Right-to-be-Forgotten trilemma:</p>
+    <ul>
+      <li><strong>Physical Crypto-Shredding:</strong> When an ephemeral channel is closed or its Time-to-Live (TTL) expires, the underlying encryption keys are permanently deleted from device hardware, rendering any NAND flash residual data mathematically undecryptable.</li>
+      <li><strong>Aztec L2 Siloed Nullifiers:</strong> A deterministic nullifier is emitted to Aztec Network's global Nullifier Tree. This generates a publicly auditable <strong>Cryptographic Destruction Receipt</strong> that proves channel deletion to legal and compliance auditors without disclosing participant identities or contents.</li>
+    </ul>
+
+    <h2>5. Minimal Device Permissions</h2>
+    <p>Chaquant declares only the minimum operating system permissions strictly required for sovereign execution:</p>
+    <ul>
+      <li><code>CAMERA</code>: Used exclusively to scan out-of-band post-quantum invitation QR codes. Camera frames are processed strictly in RAM and never saved or transmitted.</li>
+      <li><code>USE_BIOMETRIC</code>: Used to authorize local hardware enclave decryption via TouchID / FaceID / Fingerprint.</li>
+      <li><code>INTERNET</code>: Required to route encrypted Sphinx packets to the decentralized network.</li>
+      <li><code>POST_NOTIFICATIONS</code> / <code>RECEIVE_BOOT_COMPLETED</code>: Required for the zero-payload Blind Silent Push channel.</li>
+    </ul>
+
+    <h2>6. Contact &amp; Open Source Verification</h2>
+    <p>If you have questions regarding this Privacy Policy or our mathematical zero-knowledge verification mechanisms, contact our engineering team at:</p>
+    <p>
+      <strong>Chaquant Protocol Team</strong><br>
+      Email: <a href="mailto:security@chaquant.tech">security@chaquant.tech</a><br>
+      Website: <a href="https://chaquant.vercel.app">https://chaquant.vercel.app</a><br>
+      Open Source Repository: <a href="https://github.com/lcifuentes/chaquant">https://github.com/lcifuentes/chaquant</a>
+    </p>
+
+    <div class="footer">
+      &copy; 2026 Chaquant Protocol. Dual-licensed MIT / Apache-2.0. All cryptographic and zero-knowledge rights reserved.
+    </div>
+  </div>
+</body>
+</html>

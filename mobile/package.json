@@ -1,0 +1,24 @@
+{
+  "name": "chaquant-mobile",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@aztec/aztec.js": "^0.60.0",
+    "@aztec/pxe": "^0.60.0",
+    "react": "18.2.0",
+    "react-native": "0.73.4",
+    "react-native-quick-crypto": "^0.7.1",
+    "react-native-sqlcipher-2": "^0.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "@types/react": "^18.2.66",
+    "typescript": "^5.3.3"
+  }
+}

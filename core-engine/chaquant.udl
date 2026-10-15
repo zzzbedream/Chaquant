@@ -1,0 +1,42 @@
+namespace chaquant {
+    IdentityBundle generate_enterprise_identity();
+    void execute_duress_wipe_ram();
+    boolean verify_legal_destruction_receipt(string receipt_json, sequence<u8> verifying_key_bytes);
+};
+
+dictionary IdentityBundle {
+    string classical_secret_hex;
+    string classical_public_hex;
+    string dsa_signing_key_hex;
+    string dsa_verifying_key_hex;
+};
+
+dictionary SecurityPostureMetricsDto {
+    u32 spqr_epoch;
+    u32 pq_entropy_bits;
+    f32 fec_overhead_ratio;
+    boolean session_active;
+    boolean is_destroyed;
+    u64? ttl_remaining_secs;
+};
+
+dictionary DestructionReceiptDto {
+    string session_id;
+    string deal_room_commitment;
+    string siloed_nullifier;
+    string enterprise_tenant_hash;
+    u64 revoked_at_timestamp;
+    string destroyed_by_identity;
+    string? canonical_document_hash;
+    string? signature_dsa87;
+};
+
+interface EnterpriseSessionBridge {
+    constructor();
+    void set_deal_room_policy(sequence<u8> commitment, u64 expires_at, u32 policy_flags);
+    sequence<u8> encrypt_payload(sequence<u8> plaintext);
+    sequence<u8> decrypt_payload(sequence<u8> message_bytes);
+    void destroy();
+    boolean is_destroyed();
+    SecurityPostureMetricsDto get_posture_metrics();
+};

@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "public": false,
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/privacy", "destination": "/landing/privacy.html" },
+    { "source": "/privacy.html", "destination": "/landing/privacy.html" },
+    { "source": "/(.*)", "destination": "/landing/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "no-referrer" }
+      ]
+    }
+  ]
+}

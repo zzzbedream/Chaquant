@@ -1,0 +1,16 @@
+# Render Blueprint Specification for Chaquant Mobile Relay
+# Deploy with 1-click on Render (Free Web Service Tier)
+services:
+  - type: web
+    name: chaquant-mobile
+    env: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000

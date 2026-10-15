@@ -1,0 +1,15 @@
+{
+  "network": "aztec-testnet",
+  "contractName": "PairwiseSessionRegistry",
+  "address": "0x27f1c99a8b947c61e892d1b0987f65a4e32d109b",
+  "txHash": "0x708e2a9b281c184162d7a9ad34d77454206b7cf5f3679141d5f328a5ff26b75f",
+  "deployer": "0x033f6d5bc2a6738aec5d8d9d0de393844eab9741d2977a3ba9000bd3f1e0c7f9",
+  "enterpriseTenantHash": "0x8f2d5e1b4c9a7036e812f05a3c7d9e4b2a1c0e8f",
+  "deployedAt": "2026-10-14T01:50:01.371Z",
+  "features": [
+    "Dual PrivateSet UTXO (Active Sessions + Forensic Destruction Receipts)",
+    "Deterministic Siloed Nullifier Emission",
+    "Unconstrained External Auditor Verification",
+    "Ephemeral Channel TTL & Policy Flags"
+  ]
+}

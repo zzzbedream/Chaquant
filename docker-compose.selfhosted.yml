@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # 1. Gateway Proxy hacia Aztec Testnet y Blind Paymaster
+  aztec-pxe-proxy:
+    image: aztecprotocol/aztec:0.60.0
+    container_name: chaquant-aztec-proxy
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - ETHEREUM_HOST=https://sepolia.infura.io/v3/${INFURA_KEY:-demo}
+      - AZTEC_NODE_URL=https://api.testnet.aztec.network
+      - LOG_LEVEL=info
+      - DATA_DIRECTORY=/tmp/aztec-ephemeral
+    tmpfs:
+      - /tmp/aztec-ephemeral:size=512M,mode=1777
+
+  # 2. Cliente de Mixnet Nym (Enrutamiento Sphinx multicapa y Cover Traffic)
+  nym-mixnet-gateway:
+    image: nymtech/nym-client:1.1.20
+    container_name: chaquant-nym-gateway
+    restart: unless-stopped
+    ports:
+      - "1977:1977" # SOCKS5 proxy
+      - "9001:9001" # Websocket Sphinx traffic
+    environment:
+      - NYM_NETWORK=mainnet
+      - COVER_TRAFFIC_RATE=0.25 # Envío estocástico de tráfico señuelo
+      - EPHEMERAL_KEYS=true
+    command: ["run", "--id", "chaquant-selfhosted-node"]
+
+  # 3. Servidor Relay Efímero (Zero-Knowledge, Cero-Historial en Disco)
+  chaquant-relay:
+    build:
+      context: ./test-relay
+      dockerfile: Dockerfile
+    container_name: chaquant-relay-server
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+      - NYM_GATEWAY_WS=ws://nym-mixnet-gateway:9001
+      - MEMORY_ONLY=true
+    depends_on:
+      - nym-mixnet-gateway
+    tmpfs:
+      - /tmp:size=256M,mode=1777
+
+  # 4. Bus de Mensajería Efímero en RAM (Sin persistencia en disco para cumplimiento GDPR)
+  redis-ephemeral:
+    image: redis:7-alpine
+    container_name: chaquant-redis-ram
+    restart: unless-stopped
+    command: ["redis-server", "--save", "", "--appendonly", "no", "--maxmemory", "512mb", "--maxmemory-policy", "allkeys-lru"]
+    ports:
+      - "6379:6379"
+    tmpfs:
+      - /data:size=512M,mode=1777
+
+networks:
+  default:
+    name: chaquant-protocol-mesh

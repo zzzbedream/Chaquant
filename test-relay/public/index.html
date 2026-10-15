@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Chaquant • Sovereign Executive Suite & Virtual Channel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="mobile-viewport">
+
+    <!-- INPUT OCULTO PARA SELECCIÓN REAL DE ARCHIVOS DESDE EL DISPOSITIVO -->
+    <input type="file" id="real-file-upload-input" style="display: none;" accept=".pdf,.doc,.docx,.xls,.xlsx,.png,.jpg,.jpeg,.txt" onchange="handleRealFileSelected(event)">
+
+    <!-- PANTALLA 1: PORTAL EJECUTIVO / MODO DE OPERACIÓN -->
+    <section id="screen-home" class="screen active">
+      <header class="executive-header">
+        <div class="header-brand-mark">
+          <svg class="svg-brand" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="m9 12 2 2 4-4"/>
+          </svg>
+          <span class="brand-text">CHAQUANT</span>
+        </div>
+        <p class="brand-subtext">SOVEREIGN POST-QUANTUM PROTOCOL • AZTEC L2</p>
+      </header>
+
+      <!-- Panel de Certificación de Redes Soberanas -->
+      <div class="networks-strip">
+        <div class="network-badge">
+          <span class="badge-dot dot-active"></span>
+          <div class="badge-texts">
+            <span class="badge-name">Red Ona</span>
+            <span class="badge-detail">Aztec L2 UltraHonk</span>
+          </div>
+        </div>
+        <div class="network-badge">
+          <span class="badge-dot dot-active"></span>
+          <div class="badge-texts">
+            <span class="badge-name">Red Kawésqar</span>
+            <span class="badge-detail">Sphinx 1024 B Padding</span>
+          </div>
+        </div>
+        <div class="network-badge">
+          <span class="badge-dot dot-active"></span>
+          <div class="badge-texts">
+            <span class="badge-name">Red Lickan Antay</span>
+            <span class="badge-detail">NIST FIPS 203 / 204</span>
+          </div>
+        </div>
+        <div class="network-badge">
+          <span class="badge-dot dot-active"></span>
+          <div class="badge-texts">
+            <span class="badge-name">Red Yagán</span>
+            <span class="badge-detail">Bóveda Cero-Rastro</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjeta Principal de Selección de Entorno -->
+      <div class="portal-card anim-card">
+        <div class="portal-classification">CONFIDENCIAL C-LEVEL • ENTORNO SOBERANO</div>
+        <h2 class="portal-title">Comunicaciones e Intercambio Seguro</h2>
+        <p class="portal-description">
+          Plataforma de alta seguridad para directorios, comités ejecutivos y transacciones corporativas M&A. Cifrado post-cuántico en cliente y certificación de estado en Aztec Network.
+        </p>
+
+        <div class="portal-actions">
+          <!-- Opción 1: Executive Channel (Multi-Usuario / M&A) -->
+          <button id="btn-open-channel" class="btn-portal btn-primary-channel anim-btn" onclick="openChannelScreen('chan_araucaria')">
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
+                <path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/>
+              </svg>
+            </span>
+            <div class="btn-content-col">
+              <span class="btn-main-label">Executive Channel (M&A y Directorio)</span>
+              <span class="btn-sub-label">Sala corporativa multimiembro • Bóveda documental ZK</span>
+            </div>
+            <span class="btn-chevron">→</span>
+          </button>
+
+          <!-- Opción 2: Enlace Pairwise Teléfono 1 (QR) -->
+          <button id="btn-create-session" class="btn-portal btn-secondary-portal anim-btn" onclick="createSessionFlow()">
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <rect width="5" height="5" x="3" y="3" rx="1"/><rect width="5" height="5" x="16" y="3" rx="1"/><rect width="5" height="5" x="3" y="16" rx="1"/><path d="M21 16h-3a2 2 0 0 0-2 2v3"/><path d="M21 21v.01"/><path d="M12 7v3a2 2 0 0 1-2 2H7"/><path d="M3 12h.01"/><path d="M12 3h.01"/><path d="M12 16v.01"/><path d="M16 12h1"/><path d="M21 12v.01"/><path d="M12 21v-1"/>
+              </svg>
+            </span>
+            <div class="btn-content-col">
+              <span class="btn-main-label">Teléfono 1: Iniciar Enlace Pairwise (QR)</span>
+              <span class="btn-sub-label">Canal efímero directo de punto a punto</span>
+            </div>
+            <span class="btn-chevron">→</span>
+          </button>
+
+          <!-- Opción 3: Enlace Pairwise Teléfono 2 (Unirse) -->
+          <button id="btn-join-session" class="btn-portal btn-secondary-portal anim-btn" onclick="showJoinScreen()">
+            <span class="btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="7.5" cy="15.5" r="5.5"/><path d="m21 2-9.6 9.6"/><path d="m15.5 7.5 3 3L22 7l-3-3"/>
+              </svg>
+            </span>
+            <div class="btn-content-col">
+              <span class="btn-main-label">Teléfono 2: Sincronizar por Ticket / Cámara</span>
+              <span class="btn-sub-label">Ingreso manual o escaneo de código</span>
+            </div>
+            <span class="btn-chevron">→</span>
+          </button>
+        </div>
+
+        <div class="registry-pill">
+          <span class="registry-title">Registro de Estado en Aztec L2:</span>
+          <code class="registry-code">0x27f1c99a8b947c61e892d1b0987f65a4e32d109b</code>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANTALLA 2: GENERACIÓN DE CÓDIGO QR / ENLACE PAIRWISE -->
+    <section id="screen-invite" class="screen">
+      <header class="screen-navbar">
+        <button class="nav-back-btn anim-btn" onclick="navigateHome()">
+          <span class="nav-arrow">←</span> Volver al Portal
+        </button>
+        <span class="navbar-title">Enlace Criptográfico</span>
+        <span class="navbar-status-dot"></span>
+      </header>
+
+      <div class="screen-body anim-card">
+        <p class="section-instruction">
+          Apunta con la cámara del segundo dispositivo para sincronizar el canal simétrico, o comparte el ticket de autorización:
+        </p>
+
+        <!-- Contenedor QR de Alto Contraste ISO/IEC 18004 con Quiet Zone de 4 módulos -->
+        <div class="qr-optical-container">
+          <div class="qr-clean-white-box">
+            <img id="qr-img" class="qr-code-img" src="" alt="Código QR Estándar ISO de Enlace">
+          </div>
+
+          <div class="ticket-badge-card">
+            <span class="ticket-label">TICKET DE AUTORIZACIÓN:</span>
+            <span id="display-pairing-code" class="ticket-value">------</span>
+          </div>
+
+          <div id="display-full-url" class="full-url-caption">http://192.168.100.6:3000/?pair=...</div>
+        </div>
+
+        <div class="section-action-row">
+          <button id="btn-copy-link" class="btn-action full-width anim-btn" onclick="copyInviteLink()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+            </svg>
+            Copiar Enlace Directo
+          </button>
+          <div id="copy-feedback" class="copy-feedback-message" style="display: none;">Enlace copiado al portapapeles</div>
+        </div>
+
+        <div class="waiting-card">
+          <span class="radar-dot pulse-emerald"></span>
+          <span class="waiting-text">Esperando sincronización del par criptográfico...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANTALLA 3: UNIRSE A SESIÓN PAIRWISE (TELÉFONO 2) -->
+    <section id="screen-join" class="screen">
+      <header class="screen-navbar">
+        <button class="nav-back-btn anim-btn" onclick="navigateHome()">
+          <span class="nav-arrow">←</span> Volver al Portal
+        </button>
+        <span class="navbar-title">Sintonización de Canal</span>
+        <span class="navbar-status-dot"></span>
+      </header>
+
+      <div class="screen-body anim-card">
+        <!-- 1-Tap Conexión Rápida Si Hay Sesión Activa en la Misma Red Wi-Fi -->
+        <div id="quick-join-card" class="quick-connect-banner" style="display: none;">
+          <div class="quick-banner-header">
+            <span class="quick-dot-beacon"></span>
+            <span class="quick-title">SESIÓN DETECTADA EN LA RED LOCAL</span>
+          </div>
+          <button id="btn-quick-join" class="btn-quick-action full-width" onclick="quickJoinLatest()">
+            Conectar al Canal <strong id="quick-join-code">------</strong> (1-Tap)
+          </button>
+        </div>
+
+        <p class="section-instruction">
+          Ingresa el ticket alfanumérico de 6 caracteres que muestra la pantalla del primer dispositivo:
+        </p>
+
+        <div class="ticket-input-container">
+          <input type="text" id="manual-code-input" class="ticket-input-field" maxlength="8" placeholder="EJ: F4A89C" autocomplete="off" autocorrect="off" autocapitalize="characters">
+          <button class="btn-action btn-submit-ticket full-width anim-btn" onclick="submitJoinCode()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            Sintonizar Canal Cifrado
+          </button>
+        </div>
+
+        <!-- Escáner de Cámara Integrado -->
+        <div class="camera-scanner-section">
+          <button id="btn-toggle-camera" class="btn-action btn-outline full-width anim-btn" onclick="toggleCameraScanner()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/>
+            </svg>
+            Escanear con Cámara del Dispositivo
+          </button>
+          
+          <div id="camera-stream-wrapper" class="camera-stream-wrapper" style="display: none;">
+            <video id="scanner-video" class="scanner-video" playsinline></video>
+            <div class="scanner-aim-target">
+              <span class="aim-corner tl"></span>
+              <span class="aim-corner tr"></span>
+              <span class="aim-corner bl"></span>
+              <span class="aim-corner br"></span>
+              <div class="aim-laser"></div>
+            </div>
+            <button class="close-cam-btn" onclick="stopCameraScanner()">✕ Cerrar Cámara</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANTALLA 4: CHAT PAIRWISE E2EE (1-A-1) -->
+    <section id="screen-chat" class="screen">
+      <header class="channel-header">
+        <div class="channel-header-top">
+          <button class="nav-back-btn anim-btn" onclick="navigateHome()">← Salir</button>
+          <div class="channel-identity">
+            <span class="channel-status-indicator"></span>
+            <span id="chat-peer-id" class="channel-title-text">Canal Pairwise (E2EE)</span>
+          </div>
+          <button id="btn-panic-revoke" class="btn-revoke-l2 anim-btn" onclick="triggerSessionRevocation()">
+            Revocar en L2
+          </button>
+        </div>
+
+        <div class="channel-meta-strip">
+          <span class="channel-tag">Red Ona (Aztec ZK)</span>
+          <span class="channel-tag">Sphinx 1024 B Padding</span>
+          <button id="btn-toggle-cover" class="channel-tag btn-tag-toggle" onclick="toggleCoverMode()">
+            Ahorro de Batería
+          </button>
+        </div>
+      </header>
+
+      <div id="chat-messages-container" class="messages-scroll-area">
+        <div class="channel-notice-banner">
+          CANAL CRIPTOGRÁFICO PUNTO A PUNTO ACTIVO • NINGÚN MENSAJE SE ALMACENA EN SERVIDORES
+        </div>
+      </div>
+
+      <footer class="chat-composer-bar">
+        <input type="text" id="chat-input" class="composer-input" placeholder="Mensaje con padding Sphinx de 1024 bytes..." autocomplete="off">
+        <button id="chat-send-btn" class="composer-send-btn anim-btn" onclick="sendChatMessage()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </footer>
+    </section>
+
+    <!-- PANTALLA 5: EXECUTIVE CHANNEL (GRUPOS, DOCUMENTOS REALES Y AUDITORÍA) -->
+    <section id="screen-channel" class="screen">
+      <header class="channel-top-header">
+        <div class="channel-header-main">
+          <button class="nav-back-btn anim-btn" onclick="navigateHome()">← Salir</button>
+          <div class="channel-title-box">
+            <span class="channel-tag">M&A SOVEREIGN CHANNEL • AZTEC NETWORK L2</span>
+            <h3 id="channel-title-text" class="channel-main-title">Operación Araucaria • Serie B ($14.5M USD)</h3>
+          </div>
+          <button class="btn-audit-panic anim-btn" onclick="triggerSimulatedIntrusion()" title="Demostración de Auditoría CISO / Venture Capital">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/>
+            </svg>
+            Simular Intrusión
+          </button>
+        </div>
+
+        <div class="channel-meta-strip">
+          <div class="meta-item integrity-pill" id="channel-integrity-pill">
+            <span class="integrity-dot pulse-emerald"></span>
+            <span id="channel-integrity-text">5/10 Miembros • 0 Intrusos</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Caducidad:</span>
+            <strong id="channel-expiry-badge" class="meta-value">5 días restantes</strong>
+          </div>
+          <button class="seal-btn anim-btn" onclick="triggerchannelSeal()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+            </svg>
+            Sellar Acuerdo L2
+          </button>
+        </div>
+
+        <!-- Navegación por Pestañas del Channel -->
+        <nav class="channel-tabs">
+          <button id="tab-btn-chat" class="channel-tab-btn active" onclick="switchchannelTab('tab-chat')">
+            <svg class="svg-tab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Negociación (Chat)
+          </button>
+          <button id="tab-btn-docs" class="channel-tab-btn" onclick="switchchannelTab('tab-docs')">
+            <svg class="svg-tab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/>
+            </svg>
+            Bóveda Documentos (<span id="doc-count-badge">2</span>)
+          </button>
+          <button id="tab-btn-members" class="channel-tab-btn" onclick="switchchannelTab('tab-members')">
+            <svg class="svg-tab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            Claves Autorizadas (5)
+          </button>
+        </nav>
+      </header>
+
+      <!-- TAB 1: CHAT GRUPAL EJECUTIVO -->
+      <div id="tab-chat" class="channel-tab-pane active">
+        <div id="channel-chat-messages" class="channel-chat-feed">
+          <!-- Mensajes dinámicos -->
+        </div>
+
+        <footer class="channel-input-bar">
+          <button class="btn-attach-doc anim-btn" onclick="promptDocumentUpload()" title="Adjuntar Contrato o Documento Real (PDF, Word, Excel, Imagen)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+            </svg>
+          </button>
+          <input type="text" id="channel-input" class="channel-text-input" placeholder="Mensaje para el directorio y equipo legal (E2EE)..." autocomplete="off">
+          <button class="btn-channel-send anim-btn" onclick="sendchannelMessage()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <line x1="22" x2="11" y1="2" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </footer>
+      </div>
+
+      <!-- TAB 2: BÓVEDA DE DOCUMENTOS Y CONTRATOS (ZERO-KNOWLEDGE SUPABASE) -->
+      <div id="tab-docs" class="channel-tab-pane" style="display: none;">
+        <div class="vault-header-banner">
+          <div class="vault-info">
+            <h4 class="vault-heading">Bóveda Cifrada en Origen (Zero-Knowledge)</h4>
+            <p class="vault-subparagraph">
+              Los archivos binarios son cifrados en el dispositivo con XSalsa20-Poly1305 antes de almacenarse en Supabase. Cada documento cuenta con una huella SHA-256 verificada matemáticamente.
+            </p>
+          </div>
+          <button class="btn-upload-real-doc anim-btn" onclick="promptDocumentUpload()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" x2="12" y1="3" y2="15"/>
+            </svg>
+            Adjuntar Archivo Real (.pdf, .doc, .xlsx, .png)
+          </button>
+        </div>
+
+        <div id="channel-docs-list" class="channel-docs-grid">
+          <!-- Tarjetas de documentos dinámicas -->
+        </div>
+      </div>
+
+      <!-- TAB 3: DIRECTORIO DE EJECUTIVOS Y DETECCIÓN DE ACCESO -->
+      <div id="tab-members" class="channel-tab-pane" style="display: none;">
+        <div class="members-manifest-card">
+          <div class="manifest-header">
+            <h4>Lista Blanca de Claves Autorizadas (Zero-Trust)</h4>
+            <span class="manifest-rule">Cualquier paquete o conexión de una clave ajena a esta lista congela automáticamente la sala.</span>
+          </div>
+          <div id="channel-members-list" class="members-table">
+            <!-- Miembros dinámicos -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODAL DE ALERTA DE INTRUSIÓN (PANIC ZERO-TRUST) -->
+    <div id="modal-intrusion-alert" class="modal-intrusion-overlay" style="display: none;">
+      <div class="modal-intrusion-box">
+        <div class="intrusion-icon-container">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" x2="12" y1="9" y2="13"/><line x1="12" x2="12.01" y1="17" y2="17"/>
+          </svg>
+        </div>
+        <h2 class="intrusion-title">ALERTA CRÍTICA: INTRUSO DETECTADO</h2>
+        <div class="intrusion-desc">
+          Un dispositivo o clave criptográfica no autorizada ha intentado inyectar datos en la sala de negociación ejecutiva.
+        </div>
+        <div class="intrusion-details">
+          <div class="detail-row"><span>Clave Intruso:</span> <code id="intruder-key-val">0xDEAD8F01C9A4B2</code></div>
+          <div class="detail-row"><span>Origen IP:</span> <span id="intruder-ip-val">198.51.100.44 (No Autorizado)</span></div>
+          <div class="detail-row"><span>Protocolo:</span> <strong class="alert-frozen-text">CANAL CONGELADO ZERO-TRUST</strong></div>
+        </div>
+        <div class="intrusion-actions">
+          <button class="btn-panic-rekey anim-btn" onclick="rekeychannel()">
+            Rotar Claves del Directorio (Aislar Intruso)
+          </button>
+          <button class="btn-panic-kill anim-btn" onclick="triggerchannelSeal()">
+            Emitir Nulificador Aztec (Autodestrucción)
+          </button>
+          <button class="btn-panic-dismiss anim-btn" onclick="dismissIntrusionModal()">
+            Ignorar (Modo Demo CISO)
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL VISOR SEGURO DE DOCUMENTO CON MARCA DE AGUA LEGAL -->
+    <div id="modal-document-viewer" class="modal-viewer-overlay" style="display: none;">
+      <div class="modal-viewer-box">
+        <div class="viewer-top-bar">
+          <div class="viewer-title-group">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/>
+            </svg>
+            <span id="viewer-doc-title">Bóveda ZK • Documento Cifrado</span>
+          </div>
+          <button class="close-viewer-btn" onclick="closeDocumentViewer()">✕ Cerrar</button>
+        </div>
+        <div class="viewer-watermark-canvas">
+          <div class="watermark-overlay-text">
+            CONFIDENCIAL C-LEVEL • PROYECTO ARAUCARIA • COPIA CERTIFICADA • NO DIFUNDIR
+          </div>
+          <div class="viewer-document-content">
+            <div class="doc-cert-badge">
+              <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+                <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+              </svg>
+              HUELLA SHA-256 VERIFICADA MATEMÁTICAMENTE (INMUTABLE)
+            </div>
+            <code id="viewer-sha256-code">...</code>
+            <div id="viewer-doc-body" class="doc-sample-body">
+              <!-- Contenido real o extracto del contrato -->
+            </div>
+          </div>
+        </div>
+        <div class="viewer-footer-bar">
+          <button id="viewer-download-btn" class="btn-action anim-btn" onclick="downloadCurrentInspectedDoc()">
+            <svg class="svg-inline" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/>
+            </svg>
+            Descargar Archivo Real Intacto
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="anime.min.js"></script>
+  <script src="nacl-fast.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

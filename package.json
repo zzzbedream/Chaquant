@@ -1,0 +1,29 @@
+{
+  "name": "chaquant",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Protocolo de Mensajería Web3 de Privacidad Máxima y Resistencia Post-Cuántica",
+  "scripts": {
+    "account:generate": "node --experimental-strip-types scripts/generate_account.ts",
+    "account:status": "node --experimental-strip-types scripts/check_account_status.ts",
+    "deploy:testnet": "node --experimental-strip-types scripts/deploy_testnet.ts",
+    "deploy:enterprise": "node --experimental-strip-types scripts/deploy_aztec_testnet.ts",
+    "test:core": "cargo test --manifest-path core-engine/Cargo.toml -- --nocapture",
+    "build:core": "cargo build --manifest-path core-engine/Cargo.toml --release",
+    "test:mobile": "node test-relay/server.js",
+    "start": "node test-relay/server.js"
+  },
+  "dependencies": {
+    "@aztec/aztec.js": "^0.60.0",
+    "animejs": "^4.5.0",
+    "dotenv": "^16.4.5",
+    "qrcode": "^1.5.4",
+    "qrcode-terminal": "^0.12.0",
+    "tweetnacl": "^1.0.3",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "typescript": "^5.3.3"
+  }
+}
