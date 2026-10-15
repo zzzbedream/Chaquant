@@ -1,0 +1,14 @@
+.git
+.github
+.private-vault
+.stitch
+core-engine
+contracts
+mobile
+scripts
+test-relay
+deployments
+node_modules
+target
+*.pdf
+*.log
