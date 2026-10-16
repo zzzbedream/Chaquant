@@ -223,10 +223,13 @@ const translations = {
   },
 };
 
-let currentLang = 'es';
+let currentLang = localStorage.getItem('chaquant_lang') || 'en';
 
 function updateLanguage(lang) {
   currentLang = lang;
+  localStorage.setItem('chaquant_lang', lang);
+  document.documentElement.lang = lang;
+
   const elements = document.querySelectorAll('[data-i18n]');
   elements.forEach((el) => {
     const key = el.getAttribute('data-i18n');
@@ -237,7 +240,148 @@ function updateLanguage(lang) {
 
   const langLabel = document.getElementById('lang-label');
   if (langLabel) {
-    langLabel.textContent = lang === 'es' ? 'EN' : 'ES';
+    langLabel.textContent = lang === 'en' ? 'ES' : 'EN';
+  }
+}
+
+// ============================================================================
+// ANIME.JS CYBER-ANCESTRAL MOTION ENGINE
+// ============================================================================
+function initAnimeMotions() {
+  if (typeof anime === 'undefined') {
+    console.warn('[AnimeJS] anime.min.js not loaded, skipping micro-animations');
+    return;
+  }
+
+  try {
+    // 1. Smooth Continuous Rotation of Orbital Rings
+    anime({
+      targets: '.orbital-ring-outer',
+      rotate: '1turn',
+      duration: 36000,
+      easing: 'linear',
+      loop: true,
+    });
+
+    anime({
+      targets: '.orbital-ring-middle',
+      rotate: '-1turn',
+      duration: 24000,
+      easing: 'linear',
+      loop: true,
+    });
+
+    anime({
+      targets: '.orbital-ring-inner',
+      rotate: '1turn',
+      duration: 18000,
+      easing: 'linear',
+      loop: true,
+    });
+
+    // 2. Sovereign Logo Emblem Breathing Pulse
+    anime({
+      targets: '.emblem-logo-disc',
+      scale: [1, 1.04],
+      boxShadow: [
+        '0 0 24px rgba(198, 125, 52, 0.4), inset 0 0 15px rgba(0, 0, 0, 0.8)',
+        '0 0 40px rgba(198, 125, 52, 0.75), inset 0 0 20px rgba(0, 0, 0, 0.5)',
+      ],
+      duration: 3000,
+      direction: 'alternate',
+      easing: 'easeInOutSine',
+      loop: true,
+    });
+
+    // 3. Staggered Hero Entrance
+    anime({
+      targets: ['.hero-badge', '.hero-title', '.hero-description', '.hero-cta-group'],
+      translateY: [24, 0],
+      opacity: [0, 1],
+      delay: anime.stagger(130, { start: 100 }),
+      duration: 800,
+      easing: 'easeOutCubic',
+    });
+
+    anime({
+      targets: ['.sovereign-emblem-container', '.crypto-status-widget'],
+      scale: [0.94, 1],
+      opacity: [0, 1],
+      delay: anime.stagger(200, { start: 300 }),
+      duration: 850,
+      easing: 'easeOutCubic',
+    });
+
+    // 4. Staggered Entrance on Scroll for Threat Vectors, Pillars, and Cards
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries, obs) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const cards = entry.target.querySelectorAll(
+                '.problem-card, .pillar-row, .usecase-card, .pricing-card, .audit-card'
+              );
+              if (cards.length > 0) {
+                anime({
+                  targets: cards,
+                  translateY: [30, 0],
+                  opacity: [0, 1],
+                  delay: anime.stagger(100),
+                  duration: 650,
+                  easing: 'easeOutQuad',
+                });
+                obs.unobserve(entry.target);
+              }
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document
+        .querySelectorAll('.problem-grid, .pillars-container, .usecases-grid, .pricing-grid, .audit-grid')
+        .forEach((sec) => {
+          const cards = sec.querySelectorAll(
+            '.problem-card, .pillar-row, .usecase-card, .pricing-card, .audit-card'
+          );
+          cards.forEach((c) => {
+            c.style.opacity = '0';
+          });
+          observer.observe(sec);
+        });
+    }
+
+    // 5. Interactive 3D Perspective Tilt on Mousemove
+    const container = document.getElementById('emblem-container');
+    const disc = document.querySelector('.emblem-logo-disc');
+    if (container && disc) {
+      container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        const tiltX = (y / (rect.height / 2)) * -14;
+        const tiltY = (x / (rect.width / 2)) * 14;
+        disc.style.transform = `perspective(600px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale(1.06)`;
+      });
+
+      container.addEventListener('mouseleave', () => {
+        disc.style.transform = 'perspective(600px) rotateX(0deg) rotateY(0deg) scale(1)';
+      });
+    }
+
+    // 6. Real-time Telemetry Flicker on Terminal Lines
+    const cmdLines = document.querySelectorAll('.crypto-status-widget .terminal-line');
+    if (cmdLines.length > 0) {
+      anime({
+        targets: cmdLines,
+        opacity: [0.3, 1],
+        delay: anime.stagger(120, { start: 600 }),
+        duration: 500,
+        easing: 'easeOutQuad',
+      });
+    }
+  } catch (err) {
+    console.debug('[AnimeJS] Animation init error:', err);
   }
 }
 
@@ -354,7 +498,14 @@ function handleDemoSubmit(e) {
 
 // Inicialización Global
 document.addEventListener('DOMContentLoaded', () => {
+  // Inicializar idioma (Inglés por defecto, o preferencia guardada)
+  updateLanguage(currentLang);
+
+  // Inicializar Canvas generativo
   initSelknamCanvas();
+
+  // Inicializar micro-animaciones Anime.js
+  initAnimeMotions();
 
   const langBtn = document.getElementById('lang-toggle-btn');
   if (langBtn) {

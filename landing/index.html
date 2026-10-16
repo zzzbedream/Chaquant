@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chaquant Protocol | Infraestructura Criptográfica Post-Cuántica y Soberana</title>
-  <meta name="description" content="Protocolo abierto de mensajería post-cuántica y destrucción forense verificable (NIST FIPS 203/204, Nym Mixnet Sphinx + RS-FEC 10+4, Aztec Network L2 UltraHonk + Siloed Nullifiers). FOSS Public Good.">
+  <title>Chaquant Protocol | Post-Quantum & Sovereign Cryptographic Mesh</title>
+  <meta name="description" content="Open-source post-quantum messaging and verifiable cryptographic erasure protocol (NIST FIPS 203/204, Nym Mixnet Sphinx + RS-FEC 10+4, Aztec Network L2 UltraHonk + Siloed Nullifiers). FOSS Public Good.">
+  <link rel="icon" type="image/jpeg" href="chaquant_logo.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -19,15 +20,11 @@
     <canvas id="selknam-canvas"></canvas>
   </div>
 
-  <!-- Barra Superior de Navegación -->
+  <!-- Main Navigation Bar -->
   <header class="navbar" id="main-navbar">
     <div class="nav-container">
       <a href="#hero" class="nav-brand">
-        <div class="brand-emblem">
-          <span class="emblem-tri">▲</span>
-          <span class="emblem-diamond">◈</span>
-          <span class="emblem-tri">▼</span>
-        </div>
+        <img src="chaquant_logo.jpg" alt="Chaquant Protocol Emblem" class="nav-logo-img">
         <div class="brand-text">
           <span class="brand-name">CHAQUANT</span>
           <span class="brand-tag">PROTOCOL • POST-QUANTUM MESH</span>
@@ -35,53 +32,53 @@
       </a>
 
       <nav class="nav-links">
-        <a href="#problem" class="nav-link" data-i18n="nav.problem">El Problema</a>
-        <a href="#pillars" class="nav-link" data-i18n="nav.pillars">3 Pilares</a>
-        <a href="#usecases" class="nav-link" data-i18n="nav.usecases">Casos de Uso</a>
-        <a href="#deployment" class="nav-link" data-i18n="nav.deployment">Despliegue</a>
-        <a href="#audit" class="nav-link" data-i18n="nav.audit">Auditoría</a>
-        <a href="/privacy.html" class="nav-link" data-i18n="nav.privacy">Privacidad</a>
+        <a href="#problem" class="nav-link" data-i18n="nav.problem">The Problem</a>
+        <a href="#pillars" class="nav-link" data-i18n="nav.pillars">3 Pillars</a>
+        <a href="#usecases" class="nav-link" data-i18n="nav.usecases">Use Cases</a>
+        <a href="#deployment" class="nav-link" data-i18n="nav.deployment">Deployment</a>
+        <a href="#audit" class="nav-link" data-i18n="nav.audit">Security Audit</a>
+        <a href="/privacy.html" class="nav-link" data-i18n="nav.privacy">Privacy</a>
       </nav>
 
       <div class="nav-actions">
-        <button id="lang-toggle-btn" class="btn-lang" aria-label="Cambiar idioma">
+        <button id="lang-toggle-btn" class="btn-lang" aria-label="Toggle language">
           <span class="lang-icon">🌐</span>
-          <span id="lang-label">EN</span>
+          <span id="lang-label">ES</span>
         </button>
-        <a href="https://github.com/lcifuentes/chaquant" target="_blank" rel="noopener" class="btn-secondary nav-action-btn">
+        <a href="https://github.com/zzzbedream/Chaquant" target="_blank" rel="noopener" class="btn-secondary nav-action-btn">
           <span>GitHub v1.0.0</span>
         </a>
-        <a href="https://github.com/lcifuentes/chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-primary nav-action-btn">
-          <span data-i18n="nav.docs">Docs Técnicas</span>
+        <a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-primary nav-action-btn">
+          <span data-i18n="nav.docs">Tech Docs</span>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Banner de Estado de Redes Ancestrales Activas -->
+  <!-- Ancestral Network Live Status Ticker -->
   <div class="network-ticker-bar">
     <div class="ticker-inner">
       <div class="ticker-item">
         <span class="ticker-dot dot-ona"></span>
-        <strong data-i18n="ticker.ona">Red Ona (Aztec L2):</strong>
-        <span class="ticker-detail">Contrato 0x27f1c99a...109b Activo (UltraHonk)</span>
+        <strong data-i18n="ticker.ona">Ona Network (Aztec L2):</strong>
+        <span class="ticker-detail">Contract 0x27f1c99a...109b Active (UltraHonk)</span>
       </div>
       <div class="ticker-divider">◈</div>
       <div class="ticker-item">
         <span class="ticker-dot dot-kawesqar"></span>
-        <strong data-i18n="ticker.kawesqar">Red Kawésqar (Nym Mixnet):</strong>
-        <span class="ticker-detail">3 Saltos Sphinx + RS-FEC 10+4 + Poisson</span>
+        <strong data-i18n="ticker.kawesqar">Kawésqar Network (Nym Mixnet):</strong>
+        <span class="ticker-detail">3-Hop Sphinx + RS-FEC 10+4 + Poisson Delays</span>
       </div>
       <div class="ticker-divider">◈</div>
       <div class="ticker-item">
         <span class="ticker-dot dot-lickan"></span>
-        <strong data-i18n="ticker.lickan">Red Lickan Antay:</strong>
+        <strong data-i18n="ticker.lickan">Lickan Antay Network:</strong>
         <span class="ticker-detail">NIST ML-KEM-1024 & ML-DSA-87 (Level 5)</span>
       </div>
       <div class="ticker-divider">◈</div>
       <div class="ticker-item">
         <span class="ticker-dot dot-yagan"></span>
-        <strong data-i18n="ticker.yagan">Red Yagán:</strong>
+        <strong data-i18n="ticker.yagan">Yagán Network:</strong>
         <span class="ticker-detail">Zero-Allocation Rust Core (11/11 Tests &lt;0.05s)</span>
       </div>
     </div>
@@ -90,209 +87,239 @@
   <main>
     <!-- 1. HERO SECTION -->
     <section id="hero" class="section hero-section">
-      <div class="container hero-container">
-        <div class="hero-badge">
-          <span class="badge-icon">▲</span>
-          <span data-i18n="hero.badge">FOSS PUBLIC GOOD • CRIPTOGRAFÍA POST-CUÁNTICA NIST FIPS 203/204 • DUAL MIT/APACHE-2.0</span>
-        </div>
-
-        <h1 class="hero-title">
-          <span class="title-line" data-i18n="hero.titleLine1">Infraestructura Abierta</span>
-          <span class="title-gradient" data-i18n="hero.titleLine2">Post-Cuántica y Soberana</span>
-          <span class="title-line" data-i18n="hero.titleLine3">De Comunicación Humana</span>
-        </h1>
-
-        <p class="hero-description" data-i18n="hero.description">
-          Chaquant Protocol es un bien público de código abierto diseñado para comunicaciones de alto riesgo, periodistas de investigación, defensores de DD.HH. y resiliencia de infraestructuras críticas. Neutraliza la recolección global de metadatos (HNDL), sobrevive un 28.5% de pérdida de paquetes sin fugas de retransmisión TCP y certifica la destrucción matemática de información mediante Nulificadores Siloed en Aztec Layer-2.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="https://github.com/lcifuentes/chaquant" target="_blank" rel="noopener" class="btn-primary btn-large">
-            <span class="btn-text" data-i18n="hero.ctaPrimary">Ver Código en GitHub</span>
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="#audit" class="btn-secondary btn-large">
-            <span data-i18n="hero.ctaSecondary">11/11 Tests Rust Pasando (&lt;0.05s)</span>
-          </a>
-          <a href="https://github.com/lcifuentes/chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-secondary btn-large">
-            <span data-i18n="hero.ctaTertiary">Dossier Técnico & Benchmarks</span>
-          </a>
-        </div>
-
-        <!-- Terminal Widget de Verificación Criptográfica en Vivo -->
-        <div class="crypto-status-widget">
-          <div class="widget-header">
-            <div class="widget-dots">
-              <span class="dot red"></span>
-              <span class="dot yellow"></span>
-              <span class="dot green"></span>
-            </div>
-            <div class="widget-title">
-              <span class="widget-glyph">◈</span> CHAQUANT PROTOCOL • CORE ENGINE BENCHMARKS (RUST 2021)
-            </div>
-            <div class="widget-tag">11/11 SUITES PASSED (&lt;0.05s)</div>
+      <div class="container hero-layout-grid">
+        <!-- Left Column: Primary Narrative & CTAs -->
+        <div class="hero-content-col">
+          <div class="hero-badge">
+            <span class="badge-icon">▲</span>
+            <span data-i18n="hero.badge">FOSS PUBLIC GOOD • NIST FIPS 203/204 POST-QUANTUM CRYPTOGRAPHY • DUAL MIT/APACHE-2.0</span>
           </div>
-          <div class="widget-body">
-            <div class="terminal-line"><span class="cmd-prompt">cargo test:</span> <span class="cmd-text">Compiling and running 11 cryptographic and transport suites</span> <span class="cmd-ok">[11/11 OK 0.00s]</span></div>
-            <div class="terminal-line"><span class="cmd-prompt">pqxdh:</span> <span class="cmd-text">Hybrid Handshake (NIST ML-KEM-1024 Level 5 + X25519)</span> <span class="cmd-ok">[0.24 ms]</span></div>
-            <div class="terminal-line"><span class="cmd-prompt">ratchet:</span> <span class="cmd-text">SPQR Triple Ratchet with periodic lattice entropy injection</span> <span class="cmd-ok">[0.18 ms]</span></div>
-            <div class="terminal-line"><span class="cmd-prompt">fec:</span> <span class="cmd-text">Reed-Solomon Erasure Coding (10 Data + 4 Parity Shards)</span> <span class="cmd-ok">[0.31 ms / 28.5% Loss Tolerated]</span></div>
-            <div class="terminal-line"><span class="cmd-prompt">mixnet:</span> <span class="cmd-text">Uniform 1024-byte Sphinx Framing + Stochastic Poisson Cover</span> <span class="cmd-ok">[0.12 ms]</span></div>
-            <div class="terminal-line"><span class="cmd-prompt">aztec_l2:</span> <span class="cmd-text">Public getNullifierMembershipWitness for third-party audit</span> <span class="cmd-ok">[VERIFIED ON-CHAIN]</span></div>
+
+          <h1 class="hero-title">
+            <span class="title-line" data-i18n="hero.titleLine1">Open Infrastructure</span>
+            <span class="title-gradient" data-i18n="hero.titleLine2">Post-Quantum & Sovereign</span>
+            <span class="title-line" data-i18n="hero.titleLine3">For Human Communication</span>
+          </h1>
+
+          <p class="hero-description" data-i18n="hero.description">
+            Chaquant Protocol is a FOSS public good engineered for high-risk communications, investigative journalism, human rights defenders, and critical infrastructure resilience. Eliminates metadata harvesting (HNDL), survives 28.5% packet drop without TCP retransmission leaks, and guarantees mathematical proof of data destruction via Aztec Layer-2 Siloed Nullifiers.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="https://github.com/zzzbedream/Chaquant" target="_blank" rel="noopener" class="btn-primary btn-large">
+              <span class="btn-text" data-i18n="hero.ctaPrimary">View Source on GitHub</span>
+              <span class="btn-arrow">→</span>
+            </a>
+            <a href="#audit" class="btn-secondary btn-large">
+              <span data-i18n="hero.ctaSecondary">11/11 Rust Tests Passing (&lt;0.05s)</span>
+            </a>
+            <a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-secondary btn-large">
+              <span data-i18n="hero.ctaTertiary">Technical Dossier & Benchmarks</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column: Cyber-Ancestral Sovereign Core & Live Verification Terminal -->
+        <div class="hero-visual-col">
+          <div class="sovereign-emblem-container" id="emblem-container">
+            <!-- Animated Orbital Rings driven by Anime.js -->
+            <div class="orbital-ring orbital-ring-outer">
+              <span class="orbital-node node-ona" title="Ona Network (Aztec L2)">◈</span>
+              <span class="orbital-node node-kawesqar" title="Kawésqar Network (Nym Mixnet)">▲</span>
+              <span class="orbital-node node-lickan" title="Lickan Antay (NIST Post-Quantum)">▼</span>
+              <span class="orbital-node node-yagan" title="Yagán (Zero-Allocation Core)">✦</span>
+            </div>
+            <div class="orbital-ring orbital-ring-middle"></div>
+            <div class="orbital-ring orbital-ring-inner"></div>
+
+            <!-- Center Core with Authentic Repository Logo -->
+            <div class="emblem-core-wrapper">
+              <div class="emblem-glow-ring"></div>
+              <div class="emblem-logo-disc">
+                <img src="chaquant_logo.jpg" alt="Chaquant Protocol Sovereign Emblem" class="hero-logo-img">
+              </div>
+              <div class="emblem-status-badge">
+                <span class="status-pulse-dot"></span>
+                <span>NIST LEVEL 5 • VERIFIED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Cryptographic Verification Terminal -->
+          <div class="crypto-status-widget">
+            <div class="widget-header">
+              <div class="widget-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="widget-title">
+                <span class="widget-glyph">◈</span> CHAQUANT PROTOCOL • CORE ENGINE BENCHMARKS (RUST 2021)
+              </div>
+              <div class="widget-tag">11/11 SUITES PASSED (&lt;0.05s)</div>
+            </div>
+            <div class="widget-body">
+              <div class="terminal-line"><span class="cmd-prompt">cargo test:</span> <span class="cmd-text">Compiling and running 11 cryptographic suites</span> <span class="cmd-ok">[11/11 OK 0.00s]</span></div>
+              <div class="terminal-line"><span class="cmd-prompt">pqxdh:</span> <span class="cmd-text">Hybrid Handshake (NIST ML-KEM-1024 Level 5 + X25519)</span> <span class="cmd-ok">[0.24 ms]</span></div>
+              <div class="terminal-line"><span class="cmd-prompt">ratchet:</span> <span class="cmd-text">SPQR Triple Ratchet with lattice entropy injection</span> <span class="cmd-ok">[0.18 ms]</span></div>
+              <div class="terminal-line"><span class="cmd-prompt">fec:</span> <span class="cmd-text">Reed-Solomon Erasure Coding (10 Data + 4 Parity Shards)</span> <span class="cmd-ok">[0.31 ms / 28.5% Loss Tolerated]</span></div>
+              <div class="terminal-line"><span class="cmd-prompt">mixnet:</span> <span class="cmd-text">Uniform 1024-byte Sphinx Framing + Stochastic Poisson Cover</span> <span class="cmd-ok">[0.12 ms]</span></div>
+              <div class="terminal-line"><span class="cmd-prompt">aztec_l2:</span> <span class="cmd-text">Public getNullifierMembershipWitness for third-party audit</span> <span class="cmd-ok">[VERIFIED ON-CHAIN]</span></div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 2. EL PROBLEMA (AMENAZAS EXISTENCIALES) -->
+    <!-- 2. THE PROBLEM (EXISTENTIAL THREAT VECTORS) -->
     <section id="problem" class="section problem-section">
       <div class="container">
         <div class="section-tag">
           <span class="glyph-accent">━━ ◈ ━━</span>
-          <span data-i18n="problem.tag">LOS 4 VECTORES DE AMENAZA</span>
+          <span data-i18n="problem.tag">THE 4 THREAT VECTORS</span>
         </div>
-        <h2 class="section-heading" data-i18n="problem.heading">Las fallas estructurales de la mensajería tradicional</h2>
+        <h2 class="section-heading" data-i18n="problem.heading">Structural Failures of Legacy Secure Messaging</h2>
         <p class="section-lead" data-i18n="problem.lead">
-          Signal, WhatsApp y Telegram ofrecen cifrado de transporte, pero colapsan ante cuatro vectores de vigilancia estatal y computación cuántica.
+          Signal, WhatsApp, and Telegram provide transport-layer encryption, but fail under four modern vectors of nation-state surveillance and quantum computing.
         </p>
 
         <div class="problem-grid">
           <div class="problem-card">
             <div class="problem-icon">⏳</div>
-            <h3 class="problem-card-title" data-i18n="problem.card1Title">Cosechar Ahora, Descifrar Después (HNDL)</h3>
+            <h3 class="problem-card-title" data-i18n="problem.card1Title">Harvest Now, Decrypt Later (HNDL)</h3>
             <p class="problem-card-desc" data-i18n="problem.card1Desc">
-              Actores estatales interceptan y almacenan pasivamente el tráfico TLS y ECC (Curve25519). Cuando los ordenadores cuánticos alcancen la escala suficiente, Shor romperá ese material retrospectivamente, exponiendo décadas de comunicaciones.
+              State adversaries passively intercept and store classical TLS and ECC traffic today. When cryptographically relevant quantum computers arrive, Shor’s algorithm will retroactively expose decades of communications.
             </p>
             <div class="threat-level">
-              <span class="threat-label">RESISTENCIA CUÁNTICA:</span>
+              <span class="threat-label">QUANTUM RESISTANCE:</span>
               <span class="threat-value high">NIST FIPS 203 LEVEL 5</span>
             </div>
           </div>
 
           <div class="problem-card">
             <div class="problem-icon">👁️</div>
-            <h3 class="problem-card-title" data-i18n="problem.card2Title">Recolección Global de Metadatos</h3>
+            <h3 class="problem-card-title" data-i18n="problem.card2Title">Global Metadata Harvesting</h3>
             <p class="problem-card-desc" data-i18n="problem.card2Desc">
-              El cifrado de contenidos no oculta las direcciones IP, los tamaños de paquetes ni los grafos de relación social. Los adversarios pasivos reconstruyen redes enteras de activistas y fuentes sin descifrar un solo mensaje.
+              Content encryption does not obscure IP addresses, packet timings, or communication graphs. Passive observers reconstruct complete social networks without ever breaking payload ciphers.
             </p>
             <div class="threat-level">
-              <span class="threat-label">PROTECCIÓN DE GRAFOS:</span>
+              <span class="threat-label">GRAPH PROTECTION:</span>
               <span class="threat-value high">NYM MIXNET SPHINX 1024B</span>
             </div>
           </div>
 
           <div class="problem-card">
             <div class="problem-icon">🛡️</div>
-            <h3 class="problem-card-title" data-i18n="problem.card3Title">Fugas por Degradación y Retransmisión</h3>
+            <h3 class="problem-card-title" data-i18n="problem.card3Title">Degradation & Retransmission Leaks</h3>
             <p class="problem-card-desc" data-i18n="problem.card3Desc">
-              Bajo interferencia activa o censura (DPI), las retransmisiones TCP/ARQ delatan patrones de tráfico temporales. Chaquant implementa Reed-Solomon FEC (10+4), reconstruyendo el contenido sin pedir retransmisión aunque se pierda el 28.5% de los paquetes.
+              Under active Deep Packet Inspection, TCP/ARQ retransmissions leak timing signatures. Chaquant implements Reed-Solomon FEC (10+4), reconstructing full payloads without ARQ retransmission leaks under 28.5% packet drop.
             </p>
             <div class="threat-level">
-              <span class="threat-label">TOLERANCIA A PÉRDIDA:</span>
-              <span class="threat-value high">28.5% PACKET DROP IMMUNITY</span>
+              <span class="threat-label">PACKET DROP IMMUNITY:</span>
+              <span class="threat-value high">28.5% FORWARD ERASURE CODING</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 3. LOS 3 PILARES CRIPTOGRÁFICOS -->
+    <!-- 3. THREE CRYPTOGRAPHIC PILLARS -->
     <section id="pillars" class="section pillars-section">
       <div class="container">
         <div class="section-tag">
           <span class="glyph-accent">━━ ▲ ━━</span>
-          <span data-i18n="pillars.tag">ARQUITECTURA DE PRIVACIDAD ABSOLUTA</span>
+          <span data-i18n="pillars.tag">ABSOLUTE PRIVACY ARCHITECTURE</span>
         </div>
-        <h2 class="section-heading" data-i18n="pillars.heading">Tres pilares de defensa matemática insuperable</h2>
+        <h2 class="section-heading" data-i18n="pillars.heading">Three Pillars of Insuperable Mathematical Defense</h2>
         <p class="section-lead" data-i18n="pillars.lead">
-          Inspirados en la resistencia de los pueblos originarios de Chile y respaldados por la vanguardia de la criptografía Zero-Knowledge y Post-Cuántica.
+          Inspired by the ancestral resistance of Chile’s indigenous peoples, backed by cutting-edge Zero-Knowledge proofs and Post-Quantum lattice cryptography.
         </p>
 
         <div class="pillars-container">
-          <!-- Pilar 1 -->
+          <!-- Pillar 1 -->
           <div class="pillar-row">
             <div class="pillar-content">
               <div class="pillar-number">01</div>
-              <div class="pillar-badge badge-lickan">RED LICKAN ANTAY</div>
-              <h3 class="pillar-title" data-i18n="pillars.p1Title">Resistencia Cuántica Incondicional (NIST FIPS 203 & 204)</h3>
+              <div class="pillar-badge badge-lickan">LICKAN ANTAY NETWORK</div>
+              <h3 class="pillar-title" data-i18n="pillars.p1Title">Unconditional Quantum Resistance (NIST FIPS 203 & 204)</h3>
               <p class="pillar-desc" data-i18n="pillars.p1Desc">
-                Reemplazamos los algoritmos vulnerables por el estándar del NIST de última generación: <strong>ML-KEM-1024</strong> (Kyber) para encapsulación de claves y <strong>ML-DSA-87</strong> (Dilithium) para firmas digitales. Nuestro trinquete <strong>SPQR</strong> inyecta entropía cuántica periódica, garantizando secreto perfecto hacia adelante y auto-sanación tras compromiso sin sobrecargar la red móvil.
+                We replace vulnerable algorithms with the latest ratified NIST standard: <strong>ML-KEM-1024</strong> (Kyber) for key encapsulation and <strong>ML-DSA-87</strong> (Dilithium) for digital signatures. Our <strong>SPQR</strong> ratchet injects quantum entropy periodically for forward secrecy and post-compromise self-healing without mobile network bloat.
               </p>
               <ul class="pillar-features">
-                <li><span>◈</span> Nivel de seguridad NIST 5 (máximo nivel estandarizado).</li>
-                <li><span>◈</span> Apretón de manos híbrido PQXDH (X25519 + ML-KEM-1024).</li>
-                <li><span>◈</span> Tolerancia a desorden de paquetes estocásticos sin desincronización.</li>
+                <li><span>◈</span> NIST Security Category 5 (highest standardized lattice security).</li>
+                <li><span>◈</span> Hybrid PQXDH Handshake (X25519 + ML-KEM-1024 dual key exchange).</li>
+                <li><span>◈</span> Out-of-order stochastic packet tolerance without session desynchronization.</li>
               </ul>
             </div>
             <div class="pillar-visual">
               <div class="visual-box">
                 <div class="visual-header">LICKAN ANTAY PQ ENGINE</div>
                 <div class="algo-pill-list">
-                  <div class="algo-pill"><span>Algoritmo KEM:</span> <strong>ML-KEM-1024 (FIPS 203)</strong></div>
-                  <div class="algo-pill"><span>Algoritmo DSA:</span> <strong>ML-DSA-87 (FIPS 204)</strong></div>
-                  <div class="algo-pill"><span>Trinquete Simétrico:</span> <strong>SPQR + HKDF-SHA3-256</strong></div>
-                  <div class="algo-pill"><span>Cifrado Simétrico:</span> <strong>AES-256-GCM + AAD</strong></div>
+                  <div class="algo-pill"><span>KEM Algorithm:</span> <strong>ML-KEM-1024 (FIPS 203)</strong></div>
+                  <div class="algo-pill"><span>DSA Algorithm:</span> <strong>ML-DSA-87 (FIPS 204)</strong></div>
+                  <div class="algo-pill"><span>Symmetric Ratchet:</span> <strong>SPQR + HKDF-SHA3-256</strong></div>
+                  <div class="algo-pill"><span>Payload Cipher:</span> <strong>AES-256-GCM + AAD</strong></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Pilar 2 -->
+          <!-- Pillar 2 -->
           <div class="pillar-row reverse">
             <div class="pillar-content">
               <div class="pillar-number">02</div>
-              <div class="pillar-badge badge-kawesqar">RED KAWÉSQAR</div>
-              <h3 class="pillar-title" data-i18n="pillars.p2Title">Invisibilidad de Metadatos con Nym Mixnet</h3>
+              <div class="pillar-badge badge-kawesqar">KAWÉSQAR NETWORK</div>
+              <h3 class="pillar-title" data-i18n="pillars.p2Title">Metadata Invisibility via Nym Mixnet</h3>
               <p class="pillar-desc" data-i18n="pillars.p2Desc">
-                Cifrar el texto no basta si el canal delata los interlocutores. La Red Kawésqar envía cada mensaje a través de una <strong>Mixnet descentralizada de 3 saltos</strong> utilizando paquetes Sphinx de longitud uniforme (1024 bytes). El tráfico se mezcla con retardos estocásticos de Poisson y se inyecta tráfico de cobertura artificial para imposibilitar el análisis de flujo, tamaño o correlación temporal.
+                Encrypting text is meaningless if traffic metadata betrays participants. The Kawésqar Network routes every packet through a <strong>3-hop decentralized mixnet</strong> using fixed 1024-byte Sphinx frames, Poisson delays, and artificial cover traffic to make flow analysis impossible.
               </p>
               <ul class="pillar-features">
-                <li><span>◈</span> Ningún nodo de la red conoce simultáneamente al emisor y al receptor.</li>
-                <li><span>◈</span> Reed-Solomon FEC (10+4) para entrega sin pérdida en canales degradados.</li>
-                <li><span>◈</span> Blind Silent Push: despertar en segundo plano sin filtrar grafos a Apple o Google.</li>
+                <li><span>◈</span> No network node ever knows both sender and receiver simultaneously.</li>
+                <li><span>◈</span> Reed-Solomon FEC (10+4) for zero-loss delivery across degraded channels.</li>
+                <li><span>◈</span> Blind Silent Push: background wakeups without leaking relation graphs to Apple or Google.</li>
               </ul>
             </div>
             <div class="pillar-visual">
               <div class="visual-box">
                 <div class="visual-header">KAWÉSQAR SPHINX MIXNET</div>
                 <div class="mixnet-flow">
-                  <div class="flow-step"><span>Emisor</span><small>IP Oculta</small></div>
+                  <div class="flow-step"><span>Sender</span><small>Hidden IP</small></div>
                   <div class="flow-arrow">→</div>
-                  <div class="flow-node"><span>Mixnode 1</span><small>Capa Sphinx 1</small></div>
+                  <div class="flow-node"><span>Mixnode 1</span><small>Sphinx Hop 1</small></div>
                   <div class="flow-arrow">→</div>
-                  <div class="flow-node"><span>Mixnode 2</span><small>Retardo Poisson</small></div>
+                  <div class="flow-node"><span>Mixnode 2</span><small>Poisson Delay</small></div>
                   <div class="flow-arrow">→</div>
-                  <div class="flow-node"><span>Mixnode 3</span><small>Capa Sphinx 3</small></div>
+                  <div class="flow-node"><span>Mixnode 3</span><small>Sphinx Hop 3</small></div>
                   <div class="flow-arrow">→</div>
-                  <div class="flow-step"><span>Receptor</span><small>Puntero Ciego</small></div>
+                  <div class="flow-step"><span>Receiver</span><small>Blind Pointer</small></div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Pilar 3 -->
+          <!-- Pillar 3 -->
           <div class="pillar-row">
             <div class="pillar-content">
               <div class="pillar-number">03</div>
-              <div class="pillar-badge badge-ona">RED ONA & RED YAGÁN</div>
-              <h3 class="pillar-title" data-i18n="pillars.p3Title">Soberanía de Datos con Aztec Network L2 y Bóveda Local</h3>
+              <div class="pillar-badge badge-ona">ONA & YAGÁN NETWORKS</div>
+              <h3 class="pillar-title" data-i18n="pillars.p3Title">Data Sovereignty with Aztec Network L2 & Local Vault</h3>
               <p class="pillar-desc" data-i18n="pillars.p3Desc">
-                La identidad criptográfica y la gestión de sesiones se anclan en <strong>Aztec Network L2</strong> mediante contratos inteligentes escritos en Noir. Las sesiones se revocan instantáneamente emitiendo <em>nulificadores aislados (app-siloed nullifiers)</em> sin revelar identidades en la blockchain. La información local se almacena en el cliente mediante PXE y SQLCipher con purga inmediata en RAM (ZeroizeOnDrop).
+                Cryptographic identity and session states are anchored on <strong>Aztec Network L2</strong> using Noir smart contracts. Sessions are revoked instantly by emitting <em>app-siloed nullifiers</em> without revealing on-chain identities. Data resides solely in local SQLCipher storage with RAM zeroization on drop.
               </p>
               <ul class="pillar-features">
-                <li><span>◈</span> Pruebas ZK UltraHonk ejecutadas localmente en el dispositivo.</li>
-                <li><span>◈</span> Verificación pública independiente vía <code>getNullifierMembershipWitness</code>.</li>
-                <li><span>◈</span> Purga de hardware en coacción (Duress Crypto-Shredding).</li>
+                <li><span>◈</span> Client-side UltraHonk ZK-SNARK proofs executed locally on device.</li>
+                <li><span>◈</span> Independent public verification via <code>getNullifierMembershipWitness</code>.</li>
+                <li><span>◈</span> Hardware-enforced Duress Crypto-Shredding upon coercive PIN entry.</li>
               </ul>
             </div>
             <div class="pillar-visual">
               <div class="visual-box">
                 <div class="visual-header">AZTEC L2 TESTNET VERIFIED</div>
                 <div class="zk-specs">
-                  <div class="zk-row"><span>Contrato Registry:</span> <code>0x27f1c99a...109b</code></div>
-                  <div class="zk-row"><span>Desplegador L2:</span> <code>0x033f6d5b...c7f9</code></div>
-                  <div class="zk-row"><span>Tipo de Prueba:</span> <strong>UltraHonk ZK-SNARK</strong></div>
-                  <div class="zk-row"><span>Nulificador:</span> <strong>Poseidon2 Siloed App Nullifier</strong></div>
+                  <div class="zk-row"><span>Registry Contract:</span> <code>0x27f1c99a...109b</code></div>
+                  <div class="zk-row"><span>L2 Deployer:</span> <code>0x033f6d5b...c7f9</code></div>
+                  <div class="zk-row"><span>Proof System:</span> <strong>UltraHonk ZK-SNARK</strong></div>
+                  <div class="zk-row"><span>Nullifier Mechanism:</span> <strong>Poseidon2 Siloed App Nullifier</strong></div>
                 </div>
               </div>
             </div>
@@ -301,189 +328,189 @@
       </div>
     </section>
 
-    <!-- 4. CASOS DE USO ESTRATÉGICOS -->
+    <!-- 4. HIGH-IMPACT APPLICATIONS -->
     <section id="usecases" class="section usecases-section">
       <div class="container">
         <div class="section-tag">
           <span class="glyph-accent">━━ ◈ ━━</span>
-          <span data-i18n="usecases.tag">APLICACIONES DE ALTO IMPACTO</span>
+          <span data-i18n="usecases.tag">HIGH-IMPACT APPLICATIONS</span>
         </div>
-        <h2 class="section-heading" data-i18n="usecases.heading">Diseñado para entornos de máxima hostilidad</h2>
+        <h2 class="section-heading" data-i18n="usecases.heading">Engineered for High-Adversity Threat Environments</h2>
         <p class="section-lead" data-i18n="usecases.lead">
-          Infraestructura de comunicaciones soberana donde una filtración de identidad o metadatos amenaza la integridad física o la soberanía tecnológica.
+          Sovereign communications infrastructure where an identity or metadata breach threatens physical safety or national technological sovereignty.
         </p>
 
         <div class="usecases-grid">
           <div class="usecase-card">
             <div class="usecase-icon">🛡️</div>
-            <h3 class="usecase-title" data-i18n="usecases.u1Title">Protección de Fuentes y DD.HH.</h3>
+            <h3 class="usecase-title" data-i18n="usecases.u1Title">Source Protection & Human Rights Defenders</h3>
             <p class="usecase-desc" data-i18n="usecases.u1Desc">
-              Periodistas de investigación, defensores de derechos humanos y whistleblowers en zonas de conflicto. Resistencia matemática frente a spyware comercial (Pegasus), interceptación telefónica y extracción física mediante hardware forense (UFED).
+              Investigative journalists, human rights defenders, and whistleblowers in conflict zones. Mathematical defense against commercial spyware (Pegasus), telecom wiretapping, and physical forensics (UFED).
             </p>
-            <div class="usecase-pill" data-i18n="usecases.u1Pill">Inmunidad Anti-Vigilancia Masiva</div>
+            <div class="usecase-pill" data-i18n="usecases.u1Pill">Anti-Mass Surveillance Immunity</div>
           </div>
 
           <div class="usecase-card">
             <div class="usecase-icon">⚡</div>
-            <h3 class="usecase-title" data-i18n="usecases.u2Title">Infraestructuras Críticas y CSIRTs</h3>
+            <h3 class="usecase-title" data-i18n="usecases.u2Title">Critical Infrastructure & National CSIRTs</h3>
             <p class="usecase-desc" data-i18n="usecases.u2Desc">
-              Canal de coordinación fuera de banda (out-of-band) para equipos de respuesta a incidentes de seguridad nacional (CSIRT), redes eléctricas y telecomunicaciones durante ataques de denegación o brechas de red interna.
+              Out-of-band coordination channel for national Computer Security Incident Response Teams (CSIRTs), electrical grids, and telecommunications during cyber warfare and internal network breaches.
             </p>
-            <div class="usecase-pill" data-i18n="usecases.u2Pill">Canal Fuera de Banda Desacoplado</div>
+            <div class="usecase-pill" data-i18n="usecases.u2Pill">Decoupled Out-of-Band Channel</div>
           </div>
 
           <div class="usecase-card">
             <div class="usecase-icon">🔬</div>
-            <h3 class="usecase-title" data-i18n="usecases.u3Title">I+D Criptográfico y Gobernanza</h3>
+            <h3 class="usecase-title" data-i18n="usecases.u3Title">Cryptographic R&D & Decentralized Governance</h3>
             <p class="usecase-desc" data-i18n="usecases.u3Desc">
-              Laboratorios científicos, comités de gobernanza descentralizada y desarrolladores de protocolos abiertos con necesidad de salvaguardar material de investigación frente a campañas de almacenamiento a largo plazo (HNDL).
+              Scientific research laboratories, decentralized governance councils, and open protocol builders requiring long-term data security against Harvest Now Decrypt Later campaigns.
             </p>
-            <div class="usecase-pill" data-i18n="usecases.u3Pill">Resistencia HNDL a 20+ Años</div>
+            <div class="usecase-pill" data-i18n="usecases.u3Pill">20+ Year HNDL Resilience</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5. DESPLIEGUE SOBERANO (FOSS / COMUNITARIO) -->
+    <!-- 5. AUTONOMOUS DEPLOYMENT & PUBLIC GOOD -->
     <section id="deployment" class="section pricing-section">
       <div class="container">
         <div class="section-tag">
           <span class="glyph-accent">━━ ▲ ━━</span>
-          <span data-i18n="deployment.tag">DESPLIEGUE AUTÓNOMO Y BIEN PÚBLICO</span>
+          <span data-i18n="deployment.tag">AUTONOMOUS DEPLOYMENT & PUBLIC GOOD</span>
         </div>
-        <h2 class="section-heading" data-i18n="deployment.heading">100% Código Abierto, Sin Servidores Centrales Ni Custodia</h2>
+        <h2 class="section-heading" data-i18n="deployment.heading">100% Open Source, Zero Central Servers, Zero Custody</h2>
         <p class="section-lead" data-i18n="deployment.lead">
-          Licencia dual MIT / Apache-2.0. Despliegue su propio nodo soberano de Mixnet y Relay efímero en RAM, o integre el motor en Rust con sus aplicaciones.
+          Dual MIT / Apache-2.0 license. Spin up a self-hosted Mixnet and RAM-only ephemeral relay, or integrate the Rust engine directly with your client applications.
         </p>
 
         <div class="pricing-grid">
           <!-- Card 1 -->
           <div class="pricing-card">
-            <div class="pricing-tier-name" data-i18n="deployment.c1Name">Nodo Soberano Mesh</div>
+            <div class="pricing-tier-name" data-i18n="deployment.c1Name">Self-Hosted Sovereign Node</div>
             <div class="pricing-tier-subtitle" data-i18n="deployment.c1Sub">Aztec L2 PXE + Nym Mixnet Gateway + RAM Relay</div>
             <div class="pricing-price">
               <span class="amount custom" style="font-size: 26px; color: var(--ochre-light);">DOCKER</span>
             </div>
             <ul class="pricing-features">
-              <li><span>✓</span> Proxy local Aztec PXE (UltraHonk)</li>
-              <li><span>✓</span> Cliente Nym Mixnet Gateway (SOCKS5/WS)</li>
-              <li><span>✓</span> Servidor Relay efímero en RAM (Zero-Disk)</li>
-              <li><span>✓</span> Bus Redis en memoria sin persistencia (GDPR)</li>
+              <li><span>✓</span> Aztec PXE Local Proxy (UltraHonk)</li>
+              <li><span>✓</span> Nym Mixnet Gateway Client (SOCKS5/WS)</li>
+              <li><span>✓</span> Ephemeral RAM-Only Relay Server (Zero-Disk)</li>
+              <li><span>✓</span> In-Memory Redis Message Bus (GDPR compliant)</li>
             </ul>
             <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: var(--radius-sm); font-family: 'Space Mono', monospace; font-size: 11px; color: var(--ochre-light); margin-bottom: 20px; word-break: break-all;">
               docker compose -f docker-compose.selfhosted.yml up -d
             </div>
-            <a href="https://github.com/lcifuentes/chaquant/blob/main/docker-compose.selfhosted.yml" target="_blank" rel="noopener" class="btn-secondary full-width">
-              <span data-i18n="deployment.c1Btn">Ver docker-compose.selfhosted.yml</span>
+            <a href="https://github.com/zzzbedream/Chaquant/blob/main/docker-compose.selfhosted.yml" target="_blank" rel="noopener" class="btn-secondary full-width">
+              <span data-i18n="deployment.c1Btn">View docker-compose.selfhosted.yml</span>
             </a>
           </div>
 
           <!-- Card 2 (Featured) -->
           <div class="pricing-card featured">
-            <div class="featured-badge" data-i18n="deployment.featured">CLIENTE SOBERANO</div>
-            <div class="pricing-tier-name" data-i18n="deployment.c2Name">Aplicación Móvil</div>
-            <div class="pricing-tier-subtitle" data-i18n="deployment.c2Sub">Bóveda SQLCipher + Biometría + Blind Push</div>
+            <div class="featured-badge" data-i18n="deployment.featured">SOVEREIGN CLIENT</div>
+            <div class="pricing-tier-name" data-i18n="deployment.c2Name">Mobile Client</div>
+            <div class="pricing-tier-subtitle" data-i18n="deployment.c2Sub">SQLCipher Vault + Biometrics + Blind Push</div>
             <div class="pricing-price">
               <span class="amount custom" style="font-size: 26px; color: var(--text-primary);">ANDROID & iOS</span>
             </div>
             <ul class="pricing-features">
-              <li><span>✓</span> Almacenamiento local cifrado AES-256</li>
-              <li><span>✓</span> Purga física forzada por PIN de coacción</li>
-              <li><span>✓</span> Invitaciones QR fuera de banda PQXDH</li>
-              <li><span>✓</span> Blind Silent Push (Cero metadatos)</li>
-              <li><span>✓</span> Cumplimiento EAR 5D992 Mass Market</li>
+              <li><span>✓</span> Local AES-256 encrypted hardware vault</li>
+              <li><span>✓</span> Duress PIN forced physical crypto-shred</li>
+              <li><span>✓</span> Out-of-band PQXDH QR invitations</li>
+              <li><span>✓</span> Blind Silent Push (Zero metadata leakage)</li>
+              <li><span>✓</span> EAR 5D992 Mass Market compliance</li>
             </ul>
-            <a href="https://github.com/lcifuentes/chaquant/tree/main/mobile" target="_blank" rel="noopener" class="btn-primary full-width">
-              <span data-i18n="deployment.c2Btn">Explorar Código Móvil</span>
+            <a href="https://github.com/zzzbedream/Chaquant/tree/main/mobile" target="_blank" rel="noopener" class="btn-primary full-width">
+              <span data-i18n="deployment.c2Btn">Explore Mobile Code</span>
             </a>
           </div>
 
           <!-- Card 3 -->
           <div class="pricing-card">
             <div class="pricing-tier-name" data-i18n="deployment.c3Name">Protocol Core SDK</div>
-            <div class="pricing-tier-subtitle" data-i18n="deployment.c3Sub">Compilación Cruzada para Linux, macOS, Android e iOS</div>
+            <div class="pricing-tier-subtitle" data-i18n="deployment.c3Sub">Cross-Compilation for Linux, macOS, Android & iOS</div>
             <div class="pricing-price">
               <span class="amount custom" style="font-size: 26px; color: var(--glacier-cyan);">RUST / C-ABI</span>
             </div>
             <ul class="pricing-features">
-              <li><span>✓</span> C-ABI estática y dinámica para IoT/kernels</li>
-              <li><span>✓</span> Scaffolding UniFFI para Swift y Kotlin</li>
-              <li><span>✓</span> Zero-Allocation y sub-milisegundo (&lt;0.05s)</li>
-              <li><span>✓</span> 11/11 tests criptográficos automatizados</li>
+              <li><span>✓</span> Static and dynamic C-ABI for kernels/IoT</li>
+              <li><span>✓</span> UniFFI bindings for Swift and Kotlin</li>
+              <li><span>✓</span> Zero-Allocation sub-millisecond execution (&lt;0.05s)</li>
+              <li><span>✓</span> 11/11 automated cryptographic test suites</li>
             </ul>
             <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: var(--radius-sm); font-family: 'Space Mono', monospace; font-size: 11px; color: var(--glacier-cyan); margin-bottom: 20px; word-break: break-all;">
               ./scripts/build_core_sdk.sh
             </div>
-            <a href="https://github.com/lcifuentes/chaquant/blob/main/scripts/build_core_sdk.sh" target="_blank" rel="noopener" class="btn-secondary full-width">
-              <span data-i18n="deployment.c3Btn">Ver Script de Compilación</span>
+            <a href="https://github.com/zzzbedream/Chaquant/blob/main/scripts/build_core_sdk.sh" target="_blank" rel="noopener" class="btn-secondary full-width">
+              <span data-i18n="deployment.c3Btn">View Build Script</span>
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 6. AUDITORÍA DE SEGURIDAD Y CUMPLIMIENTO -->
+    <!-- 6. SECURITY AUDIT & VERIFICATION -->
     <section id="audit" class="section audit-section">
       <div class="container">
         <div class="section-tag">
           <span class="glyph-accent">━━ ◈ ━━</span>
-          <span data-i18n="audit.tag">VERIFICACIÓN Y RIGOR TÉCNICO</span>
+          <span data-i18n="audit.tag">TECHNICAL RIGOR & VERIFICATION</span>
         </div>
-        <h2 class="section-heading" data-i18n="audit.heading">Auditoría en tres capas verificada</h2>
+        <h2 class="section-heading" data-i18n="audit.heading">Three-Layer Verified Security Audit</h2>
         <p class="section-lead" data-i18n="audit.lead">
-          La privacidad absoluta no es una promesa de marketing, es un teorema matemático respaldado por pruebas de código y contratos en red.
+          Absolute privacy is not a marketing catchphrase; it is a mathematical theorem backed by executable code, automated test suites, and on-chain ZK state.
         </p>
 
         <div class="audit-grid">
           <div class="audit-card">
-            <div class="audit-level">CAPA I</div>
-            <h3 class="audit-title" data-i18n="audit.c1Title">Vectores Oficiales NIST</h3>
+            <div class="audit-level">LAYER I</div>
+            <h3 class="audit-title" data-i18n="audit.c1Title">Official NIST Vectors</h3>
             <p class="audit-desc" data-i18n="audit.c1Desc">
-              El motor criptográfico en Rust (`chaquant-core`) implementa los estándares FIPS 203 y FIPS 204 con verificación estricta de vectores de prueba y parámetros de curva fija sin fallback a cifrados débiles.
+              The Rust core engine (`chaquant-core`) implements FIPS 203 and FIPS 204 with strict parameter adherence, automated test vectors, and zero legacy fallback.
             </p>
-            <div class="audit-status verified"><span>✓</span> 100% CONFORME NIST</div>
+            <div class="audit-status verified"><span>✓</span> 100% NIST CONFORMANT</div>
           </div>
 
           <div class="audit-card">
-            <div class="audit-level">CAPA II</div>
-            <h3 class="audit-title" data-i18n="audit.c2Title">Mixnet Nym & Reed-Solomon FEC</h3>
+            <div class="audit-level">LAYER II</div>
+            <h3 class="audit-title" data-i18n="audit.c2Title">Nym Mixnet & Reed-Solomon FEC</h3>
             <p class="audit-desc" data-i18n="audit.c2Desc">
-              Encapsulación uniforme Sphinx en tramas fijas de 1024 bytes. Código de borrado Reed-Solomon (10+4) probado contra descarte intencional de paquetes y retardos estocásticos de Poisson.
+              Uniform 1024-byte Sphinx encapsulation. Reed-Solomon erasure coding (10+4) validated against intentional packet drops and stochastic Poisson delays.
             </p>
-            <div class="audit-status verified"><span>✓</span> 11/11 TESTS PASANDO</div>
+            <div class="audit-status verified"><span>✓</span> 11/11 TESTS PASSING</div>
           </div>
 
           <div class="audit-card">
-            <div class="audit-level">CAPA III</div>
-            <h3 class="audit-title" data-i18n="audit.c3Title">Contratos Aztec L2</h3>
+            <div class="audit-level">LAYER III</div>
+            <h3 class="audit-title" data-i18n="audit.c3Title">Aztec L2 Smart Contracts</h3>
             <p class="audit-desc" data-i18n="audit.c3Desc">
-              Contratos `PairwiseSessionRegistry.nr` y `SessionNote.nr` probados con pruebas UltraHonk y desplegados en Aztec Testnet con emisión de nulificadores aislados sin correlación.
+              `PairwiseSessionRegistry.nr` and `SessionNote.nr` verified with UltraHonk proofs and deployed on Aztec Testnet with siloed nullifiers.
             </p>
-            <div class="audit-status verified"><span>✓</span> TESTNET VERIFICADO</div>
+            <div class="audit-status verified"><span>✓</span> TESTNET VERIFIED</div>
           </div>
         </div>
 
         <div style="margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
-          <a href="https://github.com/lcifuentes/chaquant/blob/main/docs/AUDIT_SCOPE.md" target="_blank" rel="noopener" class="btn-secondary">
-            <span>Ver Alcance Formal de Auditoría (docs/AUDIT_SCOPE.md)</span>
+          <a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/AUDIT_SCOPE.md" target="_blank" rel="noopener" class="btn-secondary">
+            <span>Audit Scope & Verification Dossier</span>
           </a>
-          <a href="https://github.com/lcifuentes/chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-primary">
-            <span>Ver Benchmarks y Dossier Técnico</span>
+          <a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener" class="btn-primary">
+            <span>Benchmarks & Technical Architecture</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- 7. FOOTER Y CTA FINAL -->
+    <!-- 7. FOOTER AND FINAL CALL TO ACTION -->
     <section class="section cta-final-section">
       <div class="container text-center">
         <div class="final-emblem">▲ ◈ ▼</div>
-        <h2 class="final-title" data-i18n="final.title">Construyendo el futuro de la privacidad humana</h2>
+        <h2 class="final-title" data-i18n="final.title">Building the Future of Sovereign Human Privacy</h2>
         <p class="final-desc" data-i18n="final.desc">
-          Chaquant Protocol es un bien público abierto. Explora el código, ejecuta los tests o despliega un nodo soberano comunitario.
+          Chaquant Protocol is a FOSS public good. Explore the code, run the cryptographic test suites, or host a community node.
         </p>
-        <a href="https://github.com/lcifuentes/chaquant" target="_blank" rel="noopener" class="btn-primary btn-large">
-          <span data-i18n="final.btn">Colaborar en GitHub</span>
+        <a href="https://github.com/zzzbedream/Chaquant" target="_blank" rel="noopener" class="btn-primary btn-large">
+          <span data-i18n="final.btn">Contribute on GitHub</span>
           <span class="btn-arrow">→</span>
         </a>
       </div>
@@ -493,28 +520,28 @@
   <footer class="footer">
     <div class="container footer-container">
       <div class="footer-brand-col">
-        <div class="brand-emblem">▲ ◈ ▼</div>
+        <img src="chaquant_logo.jpg" alt="Chaquant Protocol Emblem" class="footer-logo-img">
         <div class="footer-brand-title">CHAQUANT PROTOCOL</div>
         <p class="footer-brand-desc" data-i18n="footer.tagline">
-          Inspirado en la dignidad y resistencia de los pueblos originarios de Chile (Selk'nam, Kawésqar, Lickan Antay, Yagán). Diseñado para la soberanía absoluta de las comunicaciones humanas.
+          Inspired by the dignity and resilience of Chile’s indigenous peoples (Selk'nam, Kawésqar, Lickan Antay, Yagán). Engineered for sovereign human communication.
         </p>
       </div>
       <div class="footer-links-col">
-        <h4 data-i18n="footer.networks">Redes del Protocolo</h4>
+        <h4 data-i18n="footer.networks">Protocol Networks</h4>
         <ul>
-          <li>Red Ona (Aztec L2 Registry)</li>
-          <li>Red Kawésqar (Nym Mixnet)</li>
-          <li>Red Lickan Antay (Post-Quantum)</li>
-          <li>Red Yagán (Bóveda Local PXE)</li>
+          <li>Ona Network (Aztec L2 Registry)</li>
+          <li>Kawésqar Network (Nym Mixnet)</li>
+          <li>Lickan Antay Network (Post-Quantum)</li>
+          <li>Yagán Network (Local Vault PXE)</li>
         </ul>
       </div>
       <div class="footer-links-col">
-        <h4 data-i18n="footer.resources">Recursos Técnicos</h4>
+        <h4 data-i18n="footer.resources">Technical Resources</h4>
         <ul>
-          <li><a href="https://github.com/lcifuentes/chaquant" target="_blank" rel="noopener">Repositorio en GitHub</a></li>
-          <li><a href="/privacy.html">Política de Privacidad Zero-Data</a></li>
-          <li><a href="https://github.com/lcifuentes/chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener">Dossier Técnico & Benchmarks</a></li>
-          <li><a href="https://github.com/lcifuentes/chaquant/blob/main/docs/AUDIT_SCOPE.md" target="_blank" rel="noopener">Alcance de Auditoría</a></li>
+          <li><a href="https://github.com/zzzbedream/Chaquant" target="_blank" rel="noopener">GitHub Repository</a></li>
+          <li><a href="/privacy.html">Zero-Data Privacy Policy</a></li>
+          <li><a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/TECHNICAL_ARCHITECTURE_AND_BENCHMARKS.md" target="_blank" rel="noopener">Technical Dossier & Benchmarks</a></li>
+          <li><a href="https://github.com/zzzbedream/Chaquant/blob/main/docs/AUDIT_SCOPE.md" target="_blank" rel="noopener">Audit Scope & Proofs</a></li>
           <li><a href="https://docs.aztec.network" target="_blank" rel="noopener">Aztec Documentation</a></li>
           <li><a href="https://csrc.nist.gov/pubs/fips/203/final" target="_blank" rel="noopener">NIST FIPS 203 (ML-KEM)</a></li>
         </ul>
@@ -524,52 +551,52 @@
       <div class="container footer-bottom-inner">
         <p>© 2026 Chaquant Protocol. FOSS Public Good • MIT / Apache-2.0 • Post-Quantum Sovereignty.</p>
         <div class="footer-legal">
-          <a href="/privacy.html" style="color: var(--text-muted); margin-right: 14px; text-decoration: none;">Política de Privacidad</a>
-          <span class="status-indicator-live">● Red Aztec Testnet Operacional</span>
+          <a href="/privacy.html" style="color: var(--text-muted); margin-right: 14px; text-decoration: none;">Privacy Policy</a>
+          <span class="status-indicator-live">● Aztec Testnet Operational</span>
         </div>
       </div>
     </div>
   </footer>
 
-  <!-- Modal de Contacto Técnico y Soporte de Integración -->
+  <!-- Technical Inquiry & Integration Modal -->
   <div id="demo-modal" class="modal-backdrop" style="display: none;">
     <div class="modal-card">
       <div class="modal-header">
         <div class="modal-title-group">
           <span class="modal-glyph">◈</span>
-          <h3 id="modal-title" data-i18n="modal.title">Contacto Técnico & Integración</h3>
+          <h3 id="modal-title" data-i18n="modal.title">Technical Contact & Integration</h3>
         </div>
         <button class="modal-close-btn" onclick="closeDemoModal()">×</button>
       </div>
       <div class="modal-body">
         <p class="modal-desc" data-i18n="modal.desc">
-          Para investigadores, desarrolladores o equipos de seguridad que requieran soporte técnico en el despliegue de nodos o integración del SDK.
+          For researchers, developers, or security teams requiring technical guidance for node deployment or SDK integration.
         </p>
         <form id="demo-form" onsubmit="handleDemoSubmit(event)">
           <div class="form-group">
-            <label for="demo-name" data-i18n="modal.name">Nombre / Identificador</label>
-            <input type="text" id="demo-name" required placeholder="Ej. Alex / Equipo de Seguridad">
+            <label for="demo-name" data-i18n="modal.name">Name / Handle</label>
+            <input type="text" id="demo-name" required placeholder="e.g. Alex / Security Team">
           </div>
           <div class="form-group">
-            <label for="demo-email" data-i18n="modal.email">Correo de Contacto</label>
-            <input type="email" id="demo-email" required placeholder="contacto@organizacion.org">
+            <label for="demo-email" data-i18n="modal.email">Contact Email</label>
+            <input type="email" id="demo-email" required placeholder="contact@organization.org">
           </div>
           <div class="form-group">
-            <label for="demo-company" data-i18n="modal.company">Organización / Proyecto</label>
-            <input type="text" id="demo-company" required placeholder="Nombre de proyecto o nodo">
+            <label for="demo-company" data-i18n="modal.company">Organization / Project</label>
+            <input type="text" id="demo-company" required placeholder="Project or Node name">
           </div>
           <div class="form-group">
-            <label for="demo-plan" data-i18n="modal.plan">Área de Interés</label>
+            <label for="demo-plan" data-i18n="modal.plan">Area of Interest</label>
             <select id="demo-plan">
-              <option value="Self-Hosted Node">Despliegue de Nodo Soberano</option>
-              <option value="SDK Integration">Integración de SDK C-ABI / UniFFI</option>
-              <option value="Security Audit">Revisión Criptográfica / Auditoría</option>
-              <option value="Grant Research">Investigación en Privacidad & Grants</option>
+              <option value="Self-Hosted Node">Self-Hosted Sovereign Node Deployment</option>
+              <option value="SDK Integration">C-ABI / UniFFI SDK Integration</option>
+              <option value="Security Audit">Cryptographic Audit & Review</option>
+              <option value="Grant Research">Privacy Research & Grants</option>
             </select>
           </div>
           <div class="form-actions">
             <button type="submit" class="btn-primary full-width">
-              <span data-i18n="modal.submit">Enviar Consulta Técnica</span>
+              <span data-i18n="modal.submit">Submit Technical Inquiry</span>
             </button>
           </div>
         </form>
@@ -578,6 +605,7 @@
     </div>
   </div>
 
+  <script src="anime.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
