@@ -247,7 +247,7 @@ body {
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -256,6 +256,17 @@ body {
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
   border-color: var(--border-ochre);
+}
+
+.lang-icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+  color: var(--ochre-light);
+  transition: transform 0.3s ease;
+}
+
+.btn-lang:hover .lang-icon-svg {
+  transform: rotate(20deg);
 }
 
 /* Ticker Bar */
@@ -717,7 +728,7 @@ body {
 /* 2. Problem Section */
 .problem-grid {
   display: grid;
-  grid-templateColumns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 28px;
 }
 
@@ -739,9 +750,126 @@ body {
   box-shadow: 0 12px 36px rgba(168, 50, 38, 0.15);
 }
 
-.problem-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
+/* Card Icon Badges (Institutional Engineering Precision) */
+.card-icon-badge {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.problem-card:hover .card-icon-badge,
+.usecase-card:hover .card-icon-badge,
+.pricing-card:hover .card-icon-badge {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.badge-threat-hndl {
+  background: rgba(168, 50, 38, 0.12);
+  border: 1px solid rgba(168, 50, 38, 0.4);
+  color: #FF6B6B;
+  box-shadow: 0 4px 16px rgba(168, 50, 38, 0.15);
+}
+.problem-card:hover .badge-threat-hndl {
+  box-shadow: 0 6px 22px rgba(168, 50, 38, 0.35);
+  border-color: #FF6B6B;
+}
+
+.badge-threat-metadata {
+  background: rgba(198, 125, 52, 0.12);
+  border: 1px solid rgba(198, 125, 52, 0.4);
+  color: var(--ochre-light);
+  box-shadow: 0 4px 16px rgba(198, 125, 52, 0.15);
+}
+.problem-card:hover .badge-threat-metadata {
+  box-shadow: 0 6px 22px rgba(198, 125, 52, 0.35);
+  border-color: var(--ochre-light);
+}
+
+.badge-threat-fec {
+  background: rgba(72, 169, 184, 0.12);
+  border: 1px solid rgba(72, 169, 184, 0.4);
+  color: var(--glacier-light);
+  box-shadow: 0 4px 16px rgba(72, 169, 184, 0.15);
+}
+.problem-card:hover .badge-threat-fec {
+  box-shadow: 0 6px 22px rgba(72, 169, 184, 0.35);
+  border-color: var(--glacier-light);
+}
+
+.badge-usecase-source {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #34D399;
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.15);
+}
+.usecase-card:hover .badge-usecase-source {
+  box-shadow: 0 6px 22px rgba(16, 185, 129, 0.35);
+  border-color: #34D399;
+}
+
+.badge-usecase-csirt {
+  background: rgba(216, 151, 60, 0.12);
+  border: 1px solid rgba(216, 151, 60, 0.4);
+  color: var(--desert-gold);
+  box-shadow: 0 4px 16px rgba(216, 151, 60, 0.15);
+}
+.usecase-card:hover .badge-usecase-csirt {
+  box-shadow: 0 6px 22px rgba(216, 151, 60, 0.35);
+  border-color: var(--desert-gold);
+}
+
+.badge-usecase-rnd {
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.4);
+  color: #C084FC;
+  box-shadow: 0 4px 16px rgba(168, 85, 247, 0.15);
+}
+.usecase-card:hover .badge-usecase-rnd {
+  box-shadow: 0 6px 22px rgba(168, 85, 247, 0.35);
+  border-color: #C084FC;
+}
+
+.badge-deploy-node {
+  background: rgba(198, 125, 52, 0.12);
+  border: 1px solid var(--border-ochre);
+  color: var(--ochre-light);
+}
+
+.badge-deploy-mobile {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.badge-deploy-sdk {
+  background: rgba(72, 169, 184, 0.12);
+  border: 1px solid var(--border-glacier);
+  color: var(--glacier-light);
+}
+
+.audit-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.audit-icon-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(198, 125, 52, 0.1);
+  border: 1px solid var(--border-ochre);
+  color: var(--ochre-light);
 }
 
 .problem-card-title {
@@ -1004,10 +1132,6 @@ body {
   border-color: var(--border-glacier);
 }
 
-.usecase-icon {
-  font-size: 36px;
-  margin-bottom: 20px;
-}
 
 .usecase-title {
   font-size: 20px;

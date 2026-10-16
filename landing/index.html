@@ -42,7 +42,11 @@
 
       <div class="nav-actions">
         <button id="lang-toggle-btn" class="btn-lang" aria-label="Toggle language">
-          <span class="lang-icon">🌐</span>
+          <svg class="lang-icon-svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="2" y1="12" x2="22" y2="12"></line>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+          </svg>
           <span id="lang-label">ES</span>
         </button>
         <a href="https://github.com/zzzbedream/Chaquant" target="_blank" rel="noopener" class="btn-secondary nav-action-btn">
@@ -185,7 +189,14 @@
 
         <div class="problem-grid">
           <div class="problem-card">
-            <div class="problem-icon">⏳</div>
+            <div class="card-icon-badge badge-threat-hndl" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 2h14M5 22h14"></path>
+                <path d="M17 2v4a5 5 0 0 1-2 4l-3 2-3-2a5 5 0 0 1-2-4V2"></path>
+                <path d="M7 22v-4a5 5 0 0 1 2-4l3-2 3 2a5 5 0 0 1 2 4v4"></path>
+                <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
             <h3 class="problem-card-title" data-i18n="problem.card1Title">Harvest Now, Decrypt Later (HNDL)</h3>
             <p class="problem-card-desc" data-i18n="problem.card1Desc">
               State adversaries passively intercept and store classical TLS and ECC traffic today. When cryptographically relevant quantum computers arrive, Shor’s algorithm will retroactively expose decades of communications.
@@ -197,7 +208,15 @@
           </div>
 
           <div class="problem-card">
-            <div class="problem-icon">👁️</div>
+            <div class="card-icon-badge badge-threat-metadata" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"></circle>
+                <circle cx="12" cy="12" r="5"></circle>
+                <path d="M12 3a9 9 0 0 1 9 9"></path>
+                <line x1="12" y1="12" x2="19" y2="5"></line>
+                <circle cx="19" cy="5" r="1.5" fill="currentColor"></circle>
+              </svg>
+            </div>
             <h3 class="problem-card-title" data-i18n="problem.card2Title">Global Metadata Harvesting</h3>
             <p class="problem-card-desc" data-i18n="problem.card2Desc">
               Content encryption does not obscure IP addresses, packet timings, or communication graphs. Passive observers reconstruct complete social networks without ever breaking payload ciphers.
@@ -209,7 +228,15 @@
           </div>
 
           <div class="problem-card">
-            <div class="problem-icon">🛡️</div>
+            <div class="card-icon-badge badge-threat-fec" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                <path d="M3 14h3M3 17.5h7M3 21h5" stroke-dasharray="1.5 2"></path>
+                <path d="M10 6.5h4M17.5 10v4M10 17.5l-3 0"></path>
+              </svg>
+            </div>
             <h3 class="problem-card-title" data-i18n="problem.card3Title">Degradation & Retransmission Leaks</h3>
             <p class="problem-card-desc" data-i18n="problem.card3Desc">
               Under active Deep Packet Inspection, TCP/ARQ retransmissions leak timing signatures. Chaquant implements Reed-Solomon FEC (10+4), reconstructing full payloads without ARQ retransmission leaks under 28.5% packet drop.
@@ -342,7 +369,13 @@
 
         <div class="usecases-grid">
           <div class="usecase-card">
-            <div class="usecase-icon">🛡️</div>
+            <div class="card-icon-badge badge-usecase-source" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="M12 8v4"></path>
+                <circle cx="12" cy="15.5" r="1" fill="currentColor"></circle>
+              </svg>
+            </div>
             <h3 class="usecase-title" data-i18n="usecases.u1Title">Source Protection & Human Rights Defenders</h3>
             <p class="usecase-desc" data-i18n="usecases.u1Desc">
               Investigative journalists, human rights defenders, and whistleblowers in conflict zones. Mathematical defense against commercial spyware (Pegasus), telecom wiretapping, and physical forensics (UFED).
@@ -351,7 +384,16 @@
           </div>
 
           <div class="usecase-card">
-            <div class="usecase-icon">⚡</div>
+            <div class="card-icon-badge badge-usecase-csirt" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="4" width="20" height="8" rx="2"></rect>
+                <circle cx="6" cy="8" r="1" fill="currentColor"></circle>
+                <circle cx="10" cy="8" r="1" fill="currentColor"></circle>
+                <circle cx="18" cy="8" r="1" fill="currentColor"></circle>
+                <path d="M5 12v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"></path>
+                <line x1="12" y1="19" x2="12" y2="22"></line>
+              </svg>
+            </div>
             <h3 class="usecase-title" data-i18n="usecases.u2Title">Critical Infrastructure & National CSIRTs</h3>
             <p class="usecase-desc" data-i18n="usecases.u2Desc">
               Out-of-band coordination channel for national Computer Security Incident Response Teams (CSIRTs), electrical grids, and telecommunications during cyber warfare and internal network breaches.
@@ -360,7 +402,16 @@
           </div>
 
           <div class="usecase-card">
-            <div class="usecase-icon">🔬</div>
+            <div class="card-icon-badge badge-usecase-rnd" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="6" cy="6" r="3"></circle>
+                <circle cx="18" cy="6" r="3"></circle>
+                <circle cx="12" cy="18" r="3"></circle>
+                <line x1="8.5" y1="7.5" x2="15.5" y2="7.5"></line>
+                <line x1="7.5" y1="8.5" x2="10.5" y2="15.5"></line>
+                <line x1="16.5" y1="8.5" x2="13.5" y2="15.5"></line>
+              </svg>
+            </div>
             <h3 class="usecase-title" data-i18n="usecases.u3Title">Cryptographic R&D & Decentralized Governance</h3>
             <p class="usecase-desc" data-i18n="usecases.u3Desc">
               Scientific research laboratories, decentralized governance councils, and open protocol builders requiring long-term data security against Harvest Now Decrypt Later campaigns.
@@ -386,6 +437,16 @@
         <div class="pricing-grid">
           <!-- Card 1 -->
           <div class="pricing-card">
+            <div class="card-icon-badge badge-deploy-node" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="8" rx="2"></rect>
+                <rect x="2" y="14" width="20" height="8" rx="2"></rect>
+                <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                <line x1="10" y1="6" x2="14" y2="6"></line>
+                <line x1="10" y1="18" x2="14" y2="18"></line>
+              </svg>
+            </div>
             <div class="pricing-tier-name" data-i18n="deployment.c1Name">Self-Hosted Sovereign Node</div>
             <div class="pricing-tier-subtitle" data-i18n="deployment.c1Sub">Aztec L2 PXE + Nym Mixnet Gateway + RAM Relay</div>
             <div class="pricing-price">
@@ -408,6 +469,13 @@
           <!-- Card 2 (Featured) -->
           <div class="pricing-card featured">
             <div class="featured-badge" data-i18n="deployment.featured">SOVEREIGN CLIENT</div>
+            <div class="card-icon-badge badge-deploy-mobile" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="5" y="2" width="14" height="20" rx="3"></rect>
+                <line x1="12" y1="18" x2="12.01" y2="18"></line>
+                <path d="M9 6h6"></path>
+              </svg>
+            </div>
             <div class="pricing-tier-name" data-i18n="deployment.c2Name">Mobile Client</div>
             <div class="pricing-tier-subtitle" data-i18n="deployment.c2Sub">SQLCipher Vault + Biometrics + Blind Push</div>
             <div class="pricing-price">
@@ -427,6 +495,20 @@
 
           <!-- Card 3 -->
           <div class="pricing-card">
+            <div class="card-icon-badge badge-deploy-sdk" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+              </svg>
+            </div>
             <div class="pricing-tier-name" data-i18n="deployment.c3Name">Protocol Core SDK</div>
             <div class="pricing-tier-subtitle" data-i18n="deployment.c3Sub">Cross-Compilation for Linux, macOS, Android & iOS</div>
             <div class="pricing-price">
@@ -463,7 +545,15 @@
 
         <div class="audit-grid">
           <div class="audit-card">
-            <div class="audit-level">LAYER I</div>
+            <div class="audit-card-header">
+              <div class="audit-level">LAYER I</div>
+              <div class="audit-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </div>
+            </div>
             <h3 class="audit-title" data-i18n="audit.c1Title">Official NIST Vectors</h3>
             <p class="audit-desc" data-i18n="audit.c1Desc">
               The Rust core engine (`chaquant-core`) implements FIPS 203 and FIPS 204 with strict parameter adherence, automated test vectors, and zero legacy fallback.
@@ -472,7 +562,15 @@
           </div>
 
           <div class="audit-card">
-            <div class="audit-level">LAYER II</div>
+            <div class="audit-card-header">
+              <div class="audit-level">LAYER II</div>
+              <div class="audit-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+            </div>
             <h3 class="audit-title" data-i18n="audit.c2Title">Nym Mixnet & Reed-Solomon FEC</h3>
             <p class="audit-desc" data-i18n="audit.c2Desc">
               Uniform 1024-byte Sphinx encapsulation. Reed-Solomon erasure coding (10+4) validated against intentional packet drops and stochastic Poisson delays.
@@ -481,7 +579,16 @@
           </div>
 
           <div class="audit-card">
-            <div class="audit-level">LAYER III</div>
+            <div class="audit-card-header">
+              <div class="audit-level">LAYER III</div>
+              <div class="audit-icon-badge" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+              </div>
+            </div>
             <h3 class="audit-title" data-i18n="audit.c3Title">Aztec L2 Smart Contracts</h3>
             <p class="audit-desc" data-i18n="audit.c3Desc">
               `PairwiseSessionRegistry.nr` and `SessionNote.nr` verified with UltraHonk proofs and deployed on Aztec Testnet with siloed nullifiers.
